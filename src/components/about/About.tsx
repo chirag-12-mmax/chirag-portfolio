@@ -74,7 +74,7 @@ export default function About() {
         </div>
 
         {/* Two-col */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '4rem', alignItems: 'start' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(2.25rem, 4.5vw, 4rem)', alignItems: 'start' }}>
 
           {/* Left: story and lines */}
           <div className="about-reveal">

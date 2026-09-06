@@ -17,7 +17,7 @@ export default function FloatingNav() {
     <>
       {/* Floating bar */}
       <nav className="floating-nav" style={{ pointerEvents: 'none', opacity: open ? 0 : 1, transition: 'opacity 0.3s ease' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '3.2rem', pointerEvents: 'all' }}>
+        <div className="nav-left-group" style={{ display: 'flex', alignItems: 'center', pointerEvents: 'all' }}>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             style={{
@@ -81,7 +81,7 @@ export default function FloatingNav() {
           </div>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '2.5rem', pointerEvents: 'all' }}>
+        <div className="nav-right-group" style={{ display: 'flex', alignItems: 'center', pointerEvents: 'all' }}>
           <span
             className="nav-right-meta"
             style={{
@@ -97,6 +97,7 @@ export default function FloatingNav() {
           <a
             href={personal.resumeUrl}
             download
+            className="nav-resume-btn"
             style={{
               fontFamily: 'var(--font-mono)', fontSize: '0.65rem',
               letterSpacing: '0.15em', color: 'var(--muted)', textTransform: 'uppercase',
@@ -111,10 +112,13 @@ export default function FloatingNav() {
             onClick={() => setOpen(true)}
             data-cursor="MENU"
             style={{
-              background: 'none', border: 'none', cursor: 'pointer',
+              background: 'none', cursor: 'pointer',
               fontFamily: 'var(--font-mono)', fontSize: '0.7rem',
               letterSpacing: '0.18em', color: 'var(--white)', textTransform: 'uppercase',
               display: 'flex', alignItems: 'center', gap: '0.5rem',
+              padding: '0.35rem 0.6rem',
+              borderRadius: '4px',
+              border: '1px solid rgba(255, 255, 255, 0.12)',
             }}
           >
             <span style={{ color: 'var(--red)' }}>☰</span> Menu
@@ -132,7 +136,7 @@ export default function FloatingNav() {
             animate={{ clipPath: 'inset(0 0 0% 0)' }}
             exit={{ clipPath: 'inset(0 0 100% 0)' }}
             transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-            style={{ zIndex: 999 }} // Ensure it's above everything
+            style={{ zIndex: 999, overflowY: 'auto' }} // Ensure it's above everything and scrollable
           >
             {/* Close */}
             <button
@@ -216,6 +220,23 @@ export default function FloatingNav() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <style jsx>{`
+        .nav-left-group {
+          gap: 3.2rem;
+        }
+        .nav-right-group {
+          gap: 2.2rem;
+        }
+        @media (max-width: 768px) {
+          .nav-left-group {
+            gap: 1rem;
+          }
+          .nav-right-group {
+            gap: 0.75rem;
+          }
+        }
+      `}</style>
     </>
   );
 }

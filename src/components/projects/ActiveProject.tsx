@@ -18,7 +18,7 @@ export default function ActiveProject({
       style={{
         position: 'relative',
         zIndex: 180,
-        width: 'clamp(320px, 90vw, 560px)',
+        width: 'clamp(280px, 94vw, 560px)',
         margin: '0 auto',
         pointerEvents: 'auto',
       }}
@@ -26,6 +26,7 @@ export default function ActiveProject({
       <AnimatePresence mode="wait">
         <motion.div
           key={project.id}
+          className="active-project-card"
           initial={{ opacity: 0, y: 14, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -14, scale: 0.98 }}
@@ -75,7 +76,7 @@ export default function ActiveProject({
 
           {/* Project Name */}
           <h3
-            className="display"
+            className="display active-project-title"
             style={{
               fontSize: 'clamp(1.2rem, 2.2vw, 1.55rem)',
               color: 'var(--white)',
@@ -152,6 +153,7 @@ export default function ActiveProject({
 
           {/* Short Punchy Description */}
           <p
+            className="active-project-desc"
             style={{
               fontFamily: 'var(--font-body)',
               fontSize: '0.8rem',
@@ -220,7 +222,7 @@ export default function ActiveProject({
             <button
               type="button"
               onClick={onOpenDetails}
-              className="btn"
+              className="btn active-details-btn"
               style={{
                 background: 'var(--red)',
                 color: 'var(--white)',
@@ -392,6 +394,26 @@ export default function ActiveProject({
           </div>
         </motion.div>
       </AnimatePresence>
+
+      <style jsx>{`
+        @media (max-width: 768px) {
+          :global(.active-project-card) {
+            padding: 0.9rem 1rem !important;
+          }
+          :global(.active-project-title) {
+            font-size: clamp(1.15rem, 4.5vw, 1.35rem) !important;
+          }
+          :global(.active-project-desc) {
+            font-size: 0.75rem !important;
+            line-height: 1.4 !important;
+            margin-bottom: 0.35rem !important;
+          }
+          :global(.active-details-btn) {
+            padding: 0.55rem 1.1rem !important;
+            font-size: 0.68rem !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

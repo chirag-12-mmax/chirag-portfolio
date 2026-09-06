@@ -57,9 +57,10 @@ export default function FloatingProjectStage({
   useEffect(() => {
     const updateDimensions = () => {
       const w = window.innerWidth;
-      // Wide horizontal radius so cards spread generously across the viewport sides
-      const rx = Math.min(Math.max(w * 0.44, 480), 720);
-      const rz = 160;
+      const isMobile = w < 768;
+      // Wide horizontal radius on desktop; compact contained radius on mobile
+      const rx = isMobile ? Math.min(w * 0.38, 140) : Math.min(Math.max(w * 0.44, 480), 720);
+      const rz = isMobile ? 80 : 160;
       setRadii({ radiusX: rx, radiusZ: rz });
     };
 
@@ -71,18 +72,20 @@ export default function FloatingProjectStage({
   // Main 3D Cylindrical Continuous Orbit Loop
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
-    // Active Card Focus Coordinates (centered directly ABOVE the details panel with matching 480px width)
+    // Active Card Focus Coordinates (centered directly ABOVE the details panel)
     const xCenter = 0;
-    const yCenter = -145; // Compact vertical placement above details HUD
-    const zCenter = 140; // Elevated forward in depth (+140px), strictly in front of all orbiting cards
-    const targetActiveWidth = 420; // Matches details HUD width exactly
+    const yCenter = isMobile ? -185 : -145; // Moved further up on mobile to leave abundant space for details HUD
+    const targetActiveWidth = isMobile
+      ? Math.min(window.innerWidth - 44, 335)
+      : 420; // Matches details HUD width
+    const zCenter = 140; // Elevated forward in depth (+140px)
     const opacityCenter = 1.0;
     const zIndexCenter = 500; // Unconditionally higher than all cylinder cards (max 60) and details HUD (300)
 
-    // Orbit cylinder depth center (recessed backwards so ALL orbiting cards move strictly BEHIND the active card & details)
-    // Cylinder orbit ranges from Z = -380px (back) to Z = -60px (front of orbit), always behind active card (+140px)
-    const orbitCenterZ = -220;
+    // Orbit cylinder depth center (recessed backwards so orbiting cards stay behind)
+    const orbitCenterZ = isMobile ? -140 : -220;
 
     // Synchronized angular velocity (one complete 2PI revolution in ~45 seconds)
     const angularVelocity = (2 * Math.PI) / 45;
@@ -127,7 +130,8 @@ export default function FloatingProjectStage({
 
         // Noticeable 3D depth scaling: Small in back (0.58), expanding to full prominence in front (1.08)
         const scaleCyl = 0.58 + u * 0.50; // Back: 0.58, Front: 1.08
-        const opacityCyl = 0.30 + u * 0.65; // Back: 0.30, Front: 0.95
+        // On mobile, keep background cylinder cards invisible so they don't bleed past mobile screen
+        const opacityCyl = isMobile ? 0 : 0.30 + u * 0.65;
         const zIndexCyl = Math.round(15 + u * 45); // Back: 15, Front: 60 (strictly < 300 HUD and < 500 active card)
         const blurCyl = (1 - u) * 2.0; // Back: 2.0px, Front: 0px
         const brightnessCyl = 0.60 + u * 0.40; // Back: 0.60, Front: 1.0
@@ -213,8 +217,9 @@ export default function FloatingProjectStage({
         justifyContent: 'center',
       }}
     >
-      {/* 3D CYLINDRICAL ORBIT STATUS HINT (BOTTOM) */}
+      {/* 3D CYLINDRICAL ORBIT STATUS HINT (BOTTOM - Desktop only) */}
       <div
+        className="cylindrical-orbit-hint"
         style={{
           position: 'absolute',
           bottom: '1.5rem',
@@ -309,6 +314,7 @@ export default function FloatingProjectStage({
 
       {/* FOREGROUND ACTIVE PROJECT EDITORIAL HUD (CENTERED DIRECTLY BELOW ACTIVE CARD) */}
       <div
+        className="project-editorial-hud"
         style={{
           position: 'absolute',
           top: 'calc(50% + 14px)',
@@ -327,6 +333,25 @@ export default function FloatingProjectStage({
           showCoverImage={false}
         />
       </div>
+
+      <style jsx>{`
+        .cylindrical-orbit-hint {
+          display: flex;
+        }
+        @media (max-width: 768px) {
+          :global(.project-stage) {
+            min-height: 840px !important;
+            height: 870px !important;
+          }
+          .cylindrical-orbit-hint {
+            display: none !important;
+          }
+          .project-editorial-hud {
+            top: calc(50% - 24px) !important;
+            padding: 0 0.5rem !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

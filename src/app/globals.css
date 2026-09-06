@@ -283,9 +283,20 @@ body {
 
 /* ── MOBILE ── */
 @media (max-width: 768px) {
-  .section { padding: 5rem 0; }
+  .section { padding: 4.5rem 0; }
   .container { padding: 0 1.25rem; }
-  .floating-nav { padding: 1.25rem 1.25rem; }
+  .floating-nav {
+    padding: 0.9rem 1.25rem;
+    mix-blend-mode: normal;
+    background: rgba(5, 5, 7, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+  .nav-center-links,
+  .nav-right-meta {
+    display: none !important;
+  }
   .cursor-dot, .cursor-ring, .cursor-label { display: none; }
   .skill-field { height: 400px; }
   .h-timeline-item { width: 85vw; }

@@ -95,6 +95,19 @@ const CAT: Record<string, { color: string; border: string; glow: string }> = {
   leadership:{ color: '#94a3b8', border: 'rgba(148,163,184,0.25)', glow: 'rgba(148,163,184,0.14)' },
 };
 
+const MOBILE_CATEGORIES = [
+  { id: 'mobile', label: 'Mobile Engineering', color: '#ff6b6b' },
+  { id: 'arch', label: 'Architecture & State', color: '#a0a0ff' },
+  { id: 'backend', label: 'Backend & APIs', color: '#38bdf8' },
+  { id: 'cloud', label: 'Cloud & Database', color: '#6bcfcf' },
+  { id: 'ai', label: 'AI & Intelligence', color: '#c084fc' },
+  { id: 'security', label: 'Security & Auth', color: '#86efac' },
+  { id: 'payment', label: 'Payments', color: '#f0c060' },
+  { id: 'hardware', label: 'Hardware & Device SDKs', color: '#fb923c' },
+  { id: 'testing', label: 'Testing & Performance', color: '#4ade80' },
+  { id: 'leadership', label: 'Leadership & CI/CD', color: '#94a3b8' },
+];
+
 // ─────────────────────────────────────────────────────────────────────────────
 // DEPTH LAYER CONFIG
 // parallaxMult: how much scene-wide parallax shifts this layer
@@ -354,9 +367,10 @@ export default function Skills() {
         </div>
       </div>
 
-      {/* ── Interactive skill field ───────────────────────────────────────────── */}
+      {/* ── Interactive skill field (Desktop) ─────────────────────────────────── */}
       <div
         ref={fieldRef}
+        className="skill-desktop-field"
         aria-label="Interactive skills canvas"
         style={{
           position: 'relative',
@@ -488,8 +502,80 @@ export default function Skills() {
         })}
       </div>
 
+      {/* ── Mobile Categorized View: Clean, structured and 100% visible ── */}
+      <div className="skill-mobile-field container">
+        {MOBILE_CATEGORIES.map((cat) => {
+          const categorySkills = SKILLS.filter((s) => s.cat === cat.id);
+          if (categorySkills.length === 0) return null;
+          const cst = CAT[cat.id] ?? CAT.mobile;
+
+          return (
+            <div
+              key={cat.id}
+              className="skill-mobile-cat-group"
+              style={{
+                background: 'rgba(255, 255, 255, 0.02)',
+                border: '1px solid rgba(255, 255, 255, 0.07)',
+                borderRadius: '8px',
+                padding: '1.1rem 1.25rem',
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.6rem',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.68rem',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: cat.color,
+                  marginBottom: '0.85rem',
+                  fontWeight: 600,
+                }}
+              >
+                <span
+                  style={{
+                    display: 'inline-block',
+                    width: '6px',
+                    height: '6px',
+                    borderRadius: '50%',
+                    background: cat.color,
+                    boxShadow: `0 0 8px ${cat.color}`,
+                  }}
+                />
+                <span>{cat.label}</span>
+              </div>
+
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem' }}>
+                {categorySkills.map((skill) => (
+                  <span
+                    key={skill.id}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      padding: '0.35rem 0.7rem',
+                      borderRadius: '4px',
+                      background: 'rgba(10, 10, 14, 0.75)',
+                      border: `1px solid ${cst.border}`,
+                      color: cst.color,
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '0.68rem',
+                      letterSpacing: '0.04em',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    {skill.label}
+                  </span>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
       {/* ── Engineering Expertise grid ─────────────────────────────────────────── */}
-      <div className="container" style={{ marginTop: '6rem' }}>
+      <div className="container skill-competencies-container" style={{ marginTop: '5rem' }}>
         <div
           className="skill-heading-anim label"
           style={{ marginBottom: '1.5rem' }}
@@ -498,7 +584,7 @@ export default function Skills() {
         </div>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
           gap: '1.5rem',
         }}>
           {engineeringExpertise?.map((exp, i) => (
@@ -554,6 +640,28 @@ export default function Skills() {
           ))}
         </div>
       </div>
+
+      <style jsx>{`
+        .skill-mobile-field {
+          display: none;
+        }
+        .skill-desktop-field {
+          display: block;
+        }
+        @media (max-width: 768px) {
+          .skill-desktop-field {
+            display: none !important;
+          }
+          .skill-mobile-field {
+            display: flex !important;
+            flex-direction: column;
+            gap: 1rem;
+          }
+          .skill-competencies-container {
+            margin-top: 3.5rem !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

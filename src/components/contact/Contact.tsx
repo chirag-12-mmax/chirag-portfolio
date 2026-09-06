@@ -4,7 +4,7 @@ import { personal } from '@/lib/data';
 
 export default function Contact() {
   return (
-    <section id="contact" className="section" style={{ background: 'var(--bg)', minHeight: '85vh', display: 'flex', alignItems: 'center' }}>
+    <section id="contact" className="section" style={{ background: 'var(--bg)', minHeight: '85vh', display: 'flex', alignItems: 'center', paddingBottom: '8.5rem' }}>
       <div className="container" style={{ width: '100%' }}>
 
         <motion.div
