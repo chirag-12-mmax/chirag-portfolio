@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad_living" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0d" />
+      <stop offset="50%" stop-color="#121217" />
+      <stop offset="100%" stop-color="#070709" />
+    </linearGradient>
+    <radialGradient id="glow_living" cx="70%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.22" />
+      <stop offset="60%" stop-color="#10b981" stop-opacity="0.04" />
+      <stop offset="100%" stop-color="#000" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="cardGrad_living" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.07)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0.02)" />
+    </linearGradient>
+    <filter id="shadow_living" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bgGrad_living)" />
+  <rect width="800" height="500" fill="url(#glow_living)" />
+
+  <!-- Subtle Geometric Grid Lines -->
+  <g opacity="0.1" stroke="#fff" stroke-width="1">
+    <line x1="100" y1="0" x2="100" y2="500" stroke-dasharray="4,8" />
+    <line x1="300" y1="0" x2="300" y2="500" stroke-dasharray="4,8" />
+    <line x1="500" y1="0" x2="500" y2="500" stroke-dasharray="4,8" />
+    <line x1="700" y1="0" x2="700" y2="500" stroke-dasharray="4,8" />
+    <line x1="0" y1="120" x2="800" y2="120" stroke-dasharray="4,8" />
+    <line x1="0" y1="280" x2="800" y2="280" stroke-dasharray="4,8" />
+    <line x1="0" y1="420" x2="800" y2="420" stroke-dasharray="4,8" />
+  </g>
+
+  <!-- Mock Device / Slate Frame -->
+  <rect x="70" y="55" width="660" height="390" rx="16" fill="url(#cardGrad_living)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" filter="url(#shadow_living)" />
+
+  <!-- Top Window Header Bar -->
+  <rect x="70" y="55" width="660" height="42" rx="16" fill="rgba(0,0,0,0.3)" />
+  <circle cx="102" cy="76" r="4.5" fill="#E31E24" opacity="0.8" />
+  <circle cx="118" cy="76" r="4.5" fill="#f59e0b" opacity="0.8" />
+  <circle cx="134" cy="76" r="4.5" fill="#10b981" opacity="0.8" />
+  <text x="700" y="80" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="12" fill="rgba(255,255,255,0.4)" letter-spacing="1.5">PROJECT 04</text>
+
+  <!-- Monogram Watermark in Background of Device -->
+  <text x="650" y="360" text-anchor="end" font-family="'Space Grotesk', system-ui, sans-serif" font-weight="900" font-size="180" fill="rgba(255,255,255,0.03)" letter-spacing="-5">GL</text>
+
+  <!-- Content Elements -->
+  <g transform="translate(115, 155)">
+    <!-- Tag badge -->
+    <rect x="0" y="0" width="160" height="24" rx="4" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-opacity="0.4" stroke-width="1" />
+    <text x="12" y="16" font-family="'JetBrains Mono', monospace" font-size="10" fill="#10b981" letter-spacing="1.2" font-weight="600">REAL ESTATE & COMMUNITY</text>
+
+    <!-- Title -->
+    <text x="0" y="68" font-family="'Space Grotesk', system-ui, sans-serif" font-weight="700" font-size="36" fill="#FAFAFA" letter-spacing="-0.5">LIVING — Godrej</text>
+
+    <!-- Accent underline bar -->
+    <rect x="0" y="88" width="56" height="3" rx="1.5" fill="#10b981" />
+
+    <!-- Metric pill -->
+    <g transform="translate(0, 115)">
+      <rect x="0" y="0" width="180" height="36" rx="6" fill="rgba(0,0,0,0.4)" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+      <text x="14" y="23" font-family="'JetBrains Mono', monospace" font-size="12" fill="#fff" font-weight="600">↑ +60% Efficiency</text>
+    </g>
+
+    <!-- UI Wireframe Mini Blocks -->
+    <g transform="translate(0, 175)" opacity="0.6">
+      <rect x="0" y="0" width="70" height="8" rx="4" fill="rgba(255,255,255,0.3)" />
+      <rect x="80" y="0" width="90" height="8" rx="4" fill="rgba(255,255,255,0.15)" />
+      <rect x="180" y="0" width="60" height="8" rx="4" fill="rgba(255,255,255,0.15)" />
+    </g>
+  </g>
+
+  <!-- Decorative Corner Crosses -->
+  <path d="M72 57 L72 67 M67 62 L77 62" stroke="#10b981" stroke-width="1.5" opacity="0.8" />
+  <path d="M728 57 L728 67 M723 62 L733 62" stroke="#10b981" stroke-width="1.5" opacity="0.8" />
+  <path d="M72 443 L72 433 M67 438 L77 438" stroke="#10b981" stroke-width="1.5" opacity="0.8" />
+  <path d="M728 443 L728 433 M723 438 L733 438" stroke="#10b981" stroke-width="1.5" opacity="0.8" />
+</svg>
