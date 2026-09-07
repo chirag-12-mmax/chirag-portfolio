@@ -5,6 +5,7 @@ import { personal, navItems } from '@/lib/data';
 
 export default function FloatingNav() {
   const [open, setOpen] = useState(false);
+  const [resumeMenuOpen, setResumeMenuOpen] = useState(false);
 
   const scrollTo = (href: string) => {
     setOpen(false);
@@ -16,8 +17,19 @@ export default function FloatingNav() {
   return (
     <>
       {/* Floating bar */}
-      <nav className="floating-nav" style={{ pointerEvents: 'none', opacity: open ? 0 : 1, transition: 'opacity 0.3s ease' }}>
-        <div className="nav-left-group" style={{ display: 'flex', alignItems: 'center', pointerEvents: 'all' }}>
+      <nav
+        className="floating-nav"
+        style={{
+          pointerEvents: 'none',
+          opacity: open ? 0 : 1,
+          visibility: open ? 'hidden' : 'visible',
+          transition: 'opacity 0.3s ease, visibility 0.3s',
+        }}
+      >
+        <div
+          className="nav-left-group"
+          style={{ display: 'flex', alignItems: 'center', pointerEvents: open ? 'none' : 'all' }}
+        >
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             style={{
@@ -81,7 +93,10 @@ export default function FloatingNav() {
           </div>
         </div>
 
-        <div className="nav-right-group" style={{ display: 'flex', alignItems: 'center', pointerEvents: 'all' }}>
+        <div
+          className="nav-right-group"
+          style={{ display: 'flex', alignItems: 'center', pointerEvents: open ? 'none' : 'all' }}
+        >
           <span
             className="nav-right-meta"
             style={{
@@ -94,20 +109,136 @@ export default function FloatingNav() {
           >
             IDEAS &nbsp;/&nbsp; APPS &nbsp;/&nbsp; IMPACT
           </span>
-          <a
-            href={personal.resumeUrl}
-            download
-            className="nav-resume-btn"
-            style={{
-              fontFamily: 'var(--font-mono)', fontSize: '0.65rem',
-              letterSpacing: '0.15em', color: 'var(--muted)', textTransform: 'uppercase',
-              textDecoration: 'none', transition: 'color 0.2s',
-            }}
-            onMouseEnter={e => (e.currentTarget.style.color = 'var(--white)')}
-            onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
+          <div
+            className="nav-resume-container"
+            style={{ position: 'relative' }}
+            onMouseEnter={() => setResumeMenuOpen(true)}
+            onMouseLeave={() => setResumeMenuOpen(false)}
           >
-            Resume ↓
-          </a>
+            <button
+              onClick={() => setResumeMenuOpen(prev => !prev)}
+              className="nav-resume-btn"
+              style={{
+                fontFamily: 'var(--font-mono)', fontSize: '0.65rem',
+                letterSpacing: '0.15em', color: 'var(--muted)', textTransform: 'uppercase',
+                background: 'none', border: 'none', cursor: 'pointer',
+                display: 'flex', alignItems: 'center', gap: '0.35rem',
+                transition: 'color 0.2s', padding: '0.35rem 0.5rem',
+                borderRadius: '4px',
+              }}
+              onMouseEnter={e => (e.currentTarget.style.color = 'var(--white)')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
+              data-cursor="RESUME"
+              aria-expanded={resumeMenuOpen}
+              aria-haspopup="true"
+            >
+              Resume <span style={{ fontSize: '0.5rem', opacity: 0.7, transform: resumeMenuOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>▼</span>
+            </button>
+
+            <AnimatePresence>
+              {resumeMenuOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                  transition={{ duration: 0.15 }}
+                  style={{
+                    position: 'absolute',
+                    top: '100%',
+                    right: 0,
+                    marginTop: '0.35rem',
+                    background: '#0d0d12',
+                    border: '1px solid rgba(255, 255, 255, 0.14)',
+                    boxShadow: '0 16px 40px rgba(0, 0, 0, 0.65)',
+                    borderRadius: '8px',
+                    padding: '0.35rem',
+                    minWidth: '210px',
+                    zIndex: 1000,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.2rem',
+                    backdropFilter: 'blur(20px)',
+                  }}
+                >
+                  <a
+                    href="/resume.html"
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => setResumeMenuOpen(false)}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: '0.65rem',
+                      padding: '0.5rem 0.7rem', borderRadius: '6px',
+                      textDecoration: 'none', color: '#e0e0e0',
+                      transition: 'background 0.15s, color 0.15s',
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.07)';
+                      e.currentTarget.style.color = '#fff';
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.background = 'transparent';
+                      e.currentTarget.style.color = '#e0e0e0';
+                    }}
+                  >
+                    <span style={{ fontSize: '1rem' }}>📄</span>
+                    <div>
+                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.04em' }}>Short Resume</div>
+                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.58rem', color: 'var(--muted)' }}>1-Page Overview</div>
+                    </div>
+                  </a>
+
+                  <a
+                    href="/cv.html"
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => setResumeMenuOpen(false)}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: '0.65rem',
+                      padding: '0.5rem 0.7rem', borderRadius: '6px',
+                      textDecoration: 'none', color: '#e0e0e0',
+                      transition: 'background 0.15s, color 0.15s',
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.07)';
+                      e.currentTarget.style.color = '#fff';
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.background = 'transparent';
+                      e.currentTarget.style.color = '#e0e0e0';
+                    }}
+                  >
+                    <span style={{ fontSize: '1rem' }}>📋</span>
+                    <div>
+                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.04em' }}>Detailed CV</div>
+                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.58rem', color: 'var(--muted)' }}>Comprehensive Profile</div>
+                    </div>
+                  </a>
+
+                  <div style={{ height: '1px', background: 'rgba(255, 255, 255, 0.08)', margin: '0.2rem 0' }} />
+
+                  <a
+                    href="/resume.pdf"
+                    download="Chirag_Shyani_Resume.pdf"
+                    onClick={() => setResumeMenuOpen(false)}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: '0.65rem',
+                      padding: '0.5rem 0.7rem', borderRadius: '6px',
+                      textDecoration: 'none', color: '#FF7B7B',
+                      transition: 'background 0.15s',
+                    }}
+                    onMouseEnter={e => (e.currentTarget.style.background = 'rgba(227, 30, 36, 0.12)')}
+                    onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+                  >
+                    <span style={{ fontSize: '1rem' }}>⬇</span>
+                    <div>
+                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.04em' }}>Download PDF</div>
+                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.58rem', color: 'rgba(255, 123, 123, 0.75)' }}>Direct File (.pdf)</div>
+                    </div>
+                  </a>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
           <button
             onClick={() => setOpen(true)}
             data-cursor="MENU"
@@ -135,20 +266,52 @@ export default function FloatingNav() {
             initial={{ clipPath: 'inset(0 0 100% 0)' }}
             animate={{ clipPath: 'inset(0 0 0% 0)' }}
             exit={{ clipPath: 'inset(0 0 100% 0)' }}
-            transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-            style={{ zIndex: 999, overflowY: 'auto' }} // Ensure it's above everything and scrollable
+            transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
+            style={{
+              position: 'fixed',
+              inset: 0,
+              zIndex: 99999,
+              overflowY: 'auto',
+              background: '#050507',
+              pointerEvents: 'all',
+            }}
           >
             {/* Close */}
             <button
               onClick={() => setOpen(false)}
+              data-cursor="CLOSE"
+              aria-label="Close navigation menu"
               style={{
-                position: 'absolute', top: '1.5rem', right: '2rem', zIndex: 10,
-                background: 'none', border: 'none', cursor: 'pointer',
-                fontFamily: 'var(--font-mono)', fontSize: '0.7rem',
-                letterSpacing: '0.15em', color: 'var(--white)', textTransform: 'uppercase',
+                position: 'fixed',
+                top: '1.5rem',
+                right: '2rem',
+                zIndex: 100000,
+                background: 'rgba(255, 255, 255, 0.08)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                borderRadius: '6px',
+                padding: '0.45rem 0.85rem',
+                cursor: 'pointer',
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.72rem',
+                letterSpacing: '0.15em',
+                color: '#ffffff',
+                textTransform: 'uppercase',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.45rem',
+                transition: 'all 0.2s ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'rgba(227, 30, 36, 0.25)';
+                e.currentTarget.style.borderColor = '#E31E24';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
               }}
             >
-              × Close
+              <span style={{ color: 'var(--red, #E31E24)', fontWeight: 'bold', fontSize: '1rem', lineHeight: 1 }}>✕</span>
+              <span>CLOSE</span>
             </button>
 
             {/* Nav items */}
@@ -190,13 +353,88 @@ export default function FloatingNav() {
                 ))}
               </nav>
 
+              {/* Resume & CV quick links for mobile */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.65 }}
+                style={{
+                  marginTop: '2.5rem',
+                  paddingTop: '1.5rem',
+                  borderTop: '1px solid var(--border)',
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.62rem',
+                    color: 'var(--muted)',
+                    letterSpacing: '0.15em',
+                    textTransform: 'uppercase',
+                    display: 'block',
+                    marginBottom: '0.85rem',
+                  }}
+                >
+                  Resume &amp; CV Options
+                </span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', maxWidth: '360px' }}>
+                  <a
+                    href="/resume.html"
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => setOpen(false)}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: '0.75rem',
+                      padding: '0.65rem 1rem', background: 'rgba(255, 255, 255, 0.04)',
+                      borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.08)',
+                      color: 'var(--white)', textDecoration: 'none',
+                      fontFamily: 'var(--font-mono)', fontSize: '0.75rem',
+                    }}
+                  >
+                    <span>📄</span>
+                    <span>Short Resume (1 Page) ↗</span>
+                  </a>
+                  <a
+                    href="/cv.html"
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => setOpen(false)}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: '0.75rem',
+                      padding: '0.65rem 1rem', background: 'rgba(255, 255, 255, 0.04)',
+                      borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.08)',
+                      color: 'var(--white)', textDecoration: 'none',
+                      fontFamily: 'var(--font-mono)', fontSize: '0.75rem',
+                    }}
+                  >
+                    <span>📋</span>
+                    <span>Detailed CV (4 Pages) ↗</span>
+                  </a>
+                  <a
+                    href="/resume.pdf"
+                    download="Chirag_Shyani_Resume.pdf"
+                    onClick={() => setOpen(false)}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: '0.75rem',
+                      padding: '0.65rem 1rem', background: 'rgba(227, 30, 36, 0.12)',
+                      borderRadius: '6px', border: '1px solid rgba(227, 30, 36, 0.3)',
+                      color: '#FF6B6B', textDecoration: 'none',
+                      fontFamily: 'var(--font-mono)', fontSize: '0.75rem', fontWeight: 600,
+                    }}
+                  >
+                    <span>⬇</span>
+                    <span>Download Resume (PDF)</span>
+                  </a>
+                </div>
+              </motion.div>
+
               {/* Contact quick links */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.7 }}
+                transition={{ delay: 0.75 }}
                 style={{
-                  marginTop: '2rem', display: 'flex', gap: '1.5rem', flexWrap: 'wrap',
+                  marginTop: '1.5rem', display: 'flex', gap: '1.5rem', flexWrap: 'wrap',
                 }}
               >
                 {[

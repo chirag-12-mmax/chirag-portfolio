@@ -73,10 +73,9 @@ export default function Home() {
         style={{
           opacity: loaded ? 1 : 0,
           transition: 'opacity 0.4s ease',
-          visibility: loaded ? 'visible' : 'hidden',
         }}
       >
-        {loaded && <PortfolioContent />}
+        <PortfolioContent />
       </div>
     </>
   );

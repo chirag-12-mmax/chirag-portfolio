@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chirag Shyani — Senior Flutter Developer Resume</title>
+  <meta name="description" content="Resume of Chirag Shyani, Senior Flutter Developer with 5+ years building production cross-platform applications across Android, iOS, Web, and Windows Desktop. Open to Senior Flutter Engineer and Technical Lead roles." />
+  <meta name="keywords" content="Chirag Shyani, Flutter Developer, Senior Flutter Developer, Flutter Engineer, Flutter Developer India, Flutter Developer Surat, Flutter Developer Gujarat, Remote Flutter Developer, Cross-Platform Developer, BLoC, Clean Architecture, Firebase" />
+  <meta name="author" content="Chirag Shyani" />
+  <style>
+    @page { size: A4; margin: 12mm 15mm 12mm 15mm; }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #fff !important; }
+      a { color: inherit !important; text-decoration: none !important; }
+      .paper { margin: 0 !important; box-shadow: none !important; padding: 0 !important; }
+      .page-break { page-break-before: always; }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.5;
+      color: #1a1a1a;
+      background: #f0f0f0;
+    }
+    /* ── PRINT BAR ── */
+    .print-btn-bar {
+      position: fixed; top: 0; left: 0; right: 0;
+      background: #1a1a2e; color: #fff;
+      padding: 9px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      z-index: 1000; font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px;
+      gap: 12px;
+    }
+    .print-btn-bar span { opacity: 0.7; font-size: 12px; }
+    .print-btn-bar .btn-group { display: flex; gap: 8px; }
+    .print-btn {
+      background: linear-gradient(135deg, #6c63ff, #3ecfcf);
+      color: #fff; border: none; padding: 7px 20px;
+      border-radius: 6px; cursor: pointer;
+      font-weight: 700; font-size: 13px; letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+    .print-btn:hover { opacity: 0.88; }
+    .cv-btn {
+      background: transparent; border: 1.5px solid rgba(255,255,255,0.4);
+      color: #fff; padding: 7px 16px;
+      border-radius: 6px; cursor: pointer;
+      font-weight: 600; font-size: 13px;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .cv-btn:hover { background: rgba(255,255,255,0.1); }
+
+    /* ── PAPER ── */
+    .paper {
+      max-width: 794px; margin: 54px auto 40px;
+      background: #fff; box-shadow: 0 4px 32px rgba(0,0,0,0.13);
+      padding: 34px 42px 38px;
+    }
+
+    /* ── HEADER ── */
+    .header { border-bottom: 2.5px solid #6c63ff; padding-bottom: 13px; margin-bottom: 14px; }
+    .header-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+    h1.name { font-size: 23pt; font-weight: 700; color: #1a1a2e; letter-spacing: -0.5px; line-height: 1.1; }
+    .title-tag { font-size: 11pt; color: #6c63ff; font-weight: 700; margin-top: 4px; letter-spacing: 0.1px; }
+    .contact-block { text-align: right; font-size: 9pt; color: #444; line-height: 1.75; flex-shrink: 0; }
+    .contact-block a { color: #6c63ff; text-decoration: none; }
+    .availability-pill {
+      display: inline-block; background: #e8f5e9; color: #2e7d32;
+      font-size: 8.5pt; font-weight: 700; border-radius: 20px; padding: 2px 10px; margin-top: 4px;
+    }
+
+    /* ── SECTIONS ── */
+    .section { margin-bottom: 16px; }
+    .section-title {
+      font-size: 9.5pt; font-weight: 700; color: #6c63ff;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      border-bottom: 1px solid #e0e0e0; padding-bottom: 3px; margin-bottom: 9px;
+    }
+    .summary p { color: #333; font-size: 10pt; line-height: 1.6; }
+
+    /* ── METRICS ── */
+    .metrics-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 3px; }
+    .metric-chip {
+      background: #f0f0ff; border: 1px solid #d0d0ff;
+      border-radius: 4px; padding: 4px 13px; font-size: 9pt; color: #4040cc; font-weight: 700;
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-entry { margin-bottom: 13px; }
+    .exp-header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+    .exp-company { font-weight: 700; font-size: 11pt; color: #1a1a2e; }
+    .exp-duration { font-size: 9pt; color: #777; white-space: nowrap; }
+    .exp-role { font-size: 10pt; font-weight: 600; color: #6c63ff; margin-bottom: 2px; }
+    .exp-domain { font-size: 8.5pt; color: #888; margin-bottom: 5px; }
+    ul.bullets { padding-left: 16px; margin: 0; }
+    ul.bullets li { font-size: 9.8pt; color: #333; margin-bottom: 2px; line-height: 1.5; }
+    .tech-row { margin-top: 4px; font-size: 8.5pt; color: #555; }
+    .tech-row strong { color: #333; }
+    hr.divider { border: none; border-top: 1px solid #eee; margin: 11px 0; }
+
+    /* ── SKILLS ── */
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 22px; }
+    .skill-category-title { font-weight: 700; font-size: 9.5pt; color: #1a1a2e; margin-bottom: 3px; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+    .skill-tag {
+      background: #f5f5ff; border: 1px solid #e0e0ff;
+      border-radius: 3px; padding: 1px 7px; font-size: 8.5pt; color: #333;
+    }
+    .skill-tag.expert { background: #e8f5e9; border-color: #a5d6a7; color: #1b5e20; font-weight: 600; }
+    .skill-tag.advanced { background: #e3f2fd; border-color: #90caf9; color: #0d47a1; }
+
+    /* ── PROJECTS ── */
+    .projects-sub-title {
+      font-size: 9pt; font-weight: 700; color: #555;
+      text-transform: uppercase; letter-spacing: 1px;
+      margin-bottom: 7px; margin-top: 0;
+    }
+    .projects-sub-title.more { margin-top: 11px; }
+    .project-entry { margin-bottom: 9px; }
+    .project-header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+    .project-name { font-weight: 700; font-size: 10.5pt; color: #1a1a2e; }
+    .project-meta { font-size: 8.5pt; color: #888; white-space: nowrap; }
+    .project-subtitle { font-size: 9pt; color: #6c63ff; font-weight: 600; margin-bottom: 2px; }
+    .project-desc { font-size: 9.5pt; color: #444; line-height: 1.5; margin-bottom: 3px; }
+    .project-stack { font-size: 8.5pt; color: #666; }
+
+    /* ── MORE PROJECTS COMPACT ── */
+    .more-projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 18px; margin-top: 5px; }
+    .more-project-item { font-size: 9pt; color: #333; }
+    .more-project-item strong { color: #1a1a2e; }
+    .more-project-item span { color: #6c63ff; font-size: 8.5pt; }
+
+    /* ── HIGHLIGHTS ── */
+    ul.highlights-list { padding-left: 16px; margin: 0; }
+    ul.highlights-list li { font-size: 9.8pt; color: #333; margin-bottom: 2px; line-height: 1.5; }
+
+    /* ── EDUCATION ── */
+    .edu-entry { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
+    .edu-degree { font-weight: 700; font-size: 10pt; color: #1a1a2e; }
+    .edu-institution { font-size: 9.5pt; color: #555; }
+    .edu-year { font-size: 9pt; color: #888; white-space: nowrap; }
+
+    /* ── ADDITIONAL EXP ── */
+    .additional-label {
+      font-size: 9pt; font-weight: 700; color: #888;
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;
+    }
+    .additional-entry { margin-bottom: 8px; }
+    .add-header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+    .add-company { font-weight: 700; font-size: 10pt; color: #1a1a2e; }
+    .add-role { font-size: 9.5pt; color: #6c63ff; font-weight: 600; }
+    .add-duration { font-size: 9pt; color: #777; white-space: nowrap; }
+    ul.add-bullets { padding-left: 15px; margin: 2px 0 0; }
+    ul.add-bullets li { font-size: 9.3pt; color: #444; margin-bottom: 1px; line-height: 1.4; }
+
+    /* ── LANGUAGES ── */
+    .lang-row { display: flex; flex-wrap: wrap; gap: 5px; }
+  </style>
+</head>
+<body>
+
+<div class="print-btn-bar no-print">
+  <span>&#128196; Chirag Shyani &mdash; Senior Flutter Developer Resume</span>
+  <div class="btn-group">
+    <a href="/cv.html" class="cv-btn">View Full CV</a>
+    <a href="/resume.pdf" download="Chirag_Shyani_Resume.pdf" class="print-btn" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;">&#11015; Download PDF</a>
+    <button class="print-btn" onclick="window.print()">&#128424; Print</button>
+  </div>
+</div>
+
+<div class="paper">
+
+  <!-- ── HEADER ── -->
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <h1 class="name">CHIRAG SHYANI</h1>
+        <div class="title-tag">Senior Flutter Developer &nbsp;|&nbsp; Flutter Engineer</div>
+      </div>
+      <div class="contact-block">
+        <div>&#128231; <a href="mailto:chirag.shyani17@gmail.com">chirag.shyani17@gmail.com</a></div>
+        <div>&#128241; +91 8141526123</div>
+        <div>&#128205; Surat, Gujarat, India</div>
+        <div>&#128279; <a href="https://linkedin.com/in/chirag-shiyani-717063245" target="_blank">linkedin.com/in/chirag-shiyani</a></div>
+        <div>&#128187; <a href="https://github.com/chirag-12-mmax" target="_blank">github.com/chirag-12-mmax</a></div>
+        <div>&#127760; <a href="https://chirag-shyani-portfolio.web.app" target="_blank">chirag-shyani-portfolio.web.app</a></div>
+        <div><span class="availability-pill">&#10003; Open to New Opportunities</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RECRUITER SNAPSHOT ── -->
+  <div class="section">
+    <div class="metrics-row">
+      <div class="metric-chip">5+ Years Experience</div>
+      <div class="metric-chip">30+ Projects Delivered</div>
+      <div class="metric-chip">8+ Published Apps</div>
+      <div class="metric-chip">100K+ App Downloads</div>
+      <div class="metric-chip">Led 4+ Developers</div>
+      <div class="metric-chip">Android &bull; iOS &bull; Web &bull; Desktop</div>
+    </div>
+  </div>
+
+  <!-- ── PROFESSIONAL SUMMARY ── -->
+  <div class="section summary">
+    <div class="section-title">Professional Summary</div>
+    <p>
+      Senior Flutter Developer with 5+ years building production cross-platform applications across Android, iOS, Web, and Windows Desktop. Shipped 30+ applications including Magicrete BuildMart (100K+ Google Play downloads) and LIVING (Godrej Living &mdash; Real Estate Project). Led a team of 4+ Flutter developers at Cirkle Studio, and delivered published apps across real estate, enterprise/business applications, transportation, construction, maritime, and HR industries. Deep expertise in Clean Architecture, BLoC/Riverpod/Provider state management, REST API &amp; GraphQL integration, Firebase, ERP/CRM integration, and CI/CD automation via GitHub Actions &amp; Fastlane. Also experienced integrating AI capabilities (OpenAI, Gemini, Claude, OCR) into production Flutter workflows. Seeking Senior Flutter Developer, Flutter Technical Lead, or Flutter + AI Engineer roles.
+    </p>
+  </div>
+
+  <!-- ── CORE SKILLS ── -->
+  <div class="section">
+    <div class="section-title">Core Technical Skills</div>
+    <div class="skills-grid">
+      <div>
+        <div class="skill-category-title">Flutter &amp; Dart</div>
+        <div class="skill-tags">
+          <span class="skill-tag expert">Flutter</span>
+          <span class="skill-tag expert">Dart</span>
+          <span class="skill-tag expert">Cross-Platform Development</span>
+          <span class="skill-tag advanced">Android</span>
+          <span class="skill-tag advanced">iOS</span>
+          <span class="skill-tag intermediate">Java</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-category-title">Architecture &amp; State</div>
+        <div class="skill-tags">
+          <span class="skill-tag expert">Mobile Application Architecture</span>
+          <span class="skill-tag expert">Clean Architecture</span>
+          <span class="skill-tag expert">BLoC</span>
+          <span class="skill-tag expert">Provider</span>
+          <span class="skill-tag advanced">Riverpod</span>
+          <span class="skill-tag advanced">Data Structures</span>
+          <span class="skill-tag advanced">Algorithms</span>
+        </div>
+      </div>
+      <div style="margin-top:7px;">
+        <div class="skill-category-title">APIs &amp; Networking</div>
+        <div class="skill-tags">
+          <span class="skill-tag expert">REST APIs</span>
+          <span class="skill-tag expert">JSON</span>
+          <span class="skill-tag advanced">WebSocket</span>
+          <span class="skill-tag expert">API Integration</span>
+        </div>
+      </div>
+      <div style="margin-top:7px;">
+        <div class="skill-category-title">AI &amp; Intelligent Integrations</div>
+        <div class="skill-tags">
+          <span class="skill-tag advanced">AI-Assisted Development</span>
+          <span class="skill-tag advanced">AI API Integration</span>
+          <span class="skill-tag advanced">OpenAI</span>
+          <span class="skill-tag advanced">Gemini</span>
+          <span class="skill-tag advanced">OCR</span>
+        </div>
+      </div>
+      <div style="margin-top:7px;">
+        <div class="skill-category-title">Security &amp; Payments</div>
+        <div class="skill-tags">
+          <span class="skill-tag advanced">Mobile Application Security</span>
+          <span class="skill-tag advanced">Biometric Authentication</span>
+          <span class="skill-tag advanced">Payment Gateway Integration</span>
+          <span class="skill-tag advanced">Razorpay</span>
+          <span class="skill-tag advanced">Apple Pay</span>
+        </div>
+      </div>
+      <div style="margin-top:7px;">
+        <div class="skill-category-title">Cloud &amp; CI/CD</div>
+        <div class="skill-tags">
+          <span class="skill-tag expert">Firebase</span>
+          <span class="skill-tag advanced">Google Cloud</span>
+          <span class="skill-tag expert">Git</span>
+          <span class="skill-tag advanced">GitHub Actions</span>
+          <span class="skill-tag advanced">Fastlane</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── WORK EXPERIENCE ── -->
+  <div class="section">
+    <div class="section-title">Work Experience</div>
+
+    <div class="exp-entry">
+      <div class="exp-header">
+        <span class="exp-company">Cirkle Studio</span>
+        <span class="exp-duration">August 2025 &ndash; Present</span>
+      </div>
+      <div class="exp-role">Senior Flutter Developer &amp; Technical Lead</div>
+      <div class="exp-domain">Digital Product Studio &middot; Surat, India</div>
+      <ul class="bullets">
+        <li>Lead architecture and full-stack development of enterprise cross-platform applications using Clean Architecture and MVVM patterns across Android, iOS, Web, and Desktop.</li>
+        <li>Mentor a team of 4 Flutter developers, conduct systematic code reviews, and built a reusable component library shared across 5+ active projects.</li>
+        <li>Reduced app startup time by 45% through lazy initialization, deferred loading, and widget tree optimization.</li>
+        <li>Implemented GitHub Actions + Fastlane CI/CD pipelines, reducing deployment cycles by 60% — from manual steps to fully automated builds and store submissions.</li>
+        <li>Own Firebase, REST API, and third-party SDK integrations; facilitate Agile sprint planning and client stakeholder demos.</li>
+      </ul>
+      <div class="tech-row"><strong>Stack:</strong> Flutter, Dart, Firebase, GitHub Actions, Fastlane, Clean Architecture, BLoC, Provider</div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="exp-entry">
+      <div class="exp-header">
+        <span class="exp-company">Instance IT Solutions</span>
+        <span class="exp-duration">June 2024 &ndash; August 2025</span>
+      </div>
+      <div class="exp-role">Flutter Developer</div>
+      <div class="exp-domain">Enterprise Software Company &middot; Surat, India</div>
+      <ul class="bullets">
+        <li>Engineered Magicrete BuildMart — a pan-India construction materials marketplace that reached 100K+ downloads on Google Play, with an offline-first SQLite architecture for low-connectivity construction zones.</li>
+        <li>Shipped 6 production apps to Play Store and App Store: ZingHR Onboarding, DG Ferry Agent Booking Platform, DG Sea Connect, Magicrete Sarthak, Pulpit Mobility, and SAH INVESTMENT.</li>
+        <li>Integrated 3+ enterprise ERP and CRM systems end-to-end, including custom background sync and delta-update logic.</li>
+        <li>Reduced REST API data consumption by 40% through response caching, pagination, and request deduplication.</li>
+        <li>Built WebSocket-based real-time ride tracking and Razorpay/Stripe payment integrations for Pulpit Mobility.</li>
+      </ul>
+      <div class="tech-row"><strong>Stack:</strong> Flutter, Dart, REST API, ERP Integration, SQLite, Offline Sync, Fastlane, Payment Gateways, WebSocket, Firebase</div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="exp-entry">
+      <div class="exp-header">
+        <span class="exp-company">Webito Infotech</span>
+        <span class="exp-duration">June 2022 &ndash; June 2024</span>
+      </div>
+      <div class="exp-role">Flutter Developer</div>
+      <div class="exp-domain">IT Solutions Provider &middot; Surat, India</div>
+      <ul class="bullets">
+        <li>Delivered 10+ cross-platform mobile apps across recruitment, real estate, e-commerce, and enterprise service domains.</li>
+        <li>Architected MyRCloud Recruitment Platform — a multi-platform ecosystem (Android, iOS, Web) serving 5K+ candidates with HRMS integration, WebSocket notifications, and role-based access control.</li>
+        <li>Reduced crash rate by 85% across the app portfolio through Crashlytics monitoring, structured error handling, and systematic QA processes.</li>
+        <li>Built production applications with Provider, BLoC, and Riverpod; integrated GraphQL APIs for property management and real-time data-heavy platforms.</li>
+      </ul>
+      <div class="tech-row"><strong>Stack:</strong> Flutter, Dart, GraphQL, REST API, Provider, BLoC, Riverpod, Firebase, Flutter Web</div>
+    </div>
+  </div>
+
+  <!-- ── FEATURED PROJECTS ── -->
+  <div class="section">
+    <div class="section-title">Projects</div>
+
+    <div class="projects-sub-title">&#9733; Featured Projects</div>
+
+    <div class="project-entry">
+      <div class="project-header">
+        <span class="project-name">Magicrete BuildMart</span>
+        <span class="project-meta">10 months &middot; Senior Flutter Developer &middot; Play Store &amp; App Store</span>
+      </div>
+      <div class="project-subtitle">Digital Construction Marketplace &middot; 100K+ Downloads &middot; Offline-First</div>
+      <div class="project-desc">Pan-India dealer/distributor marketplace with SQLite offline-first architecture, background ERP sync, and delta-update strategies for low-connectivity construction zones. Scaled to 100K+ Google Play downloads.</div>
+      <div class="project-stack"><strong>Stack:</strong> Flutter, REST API, ERP Integration, SQLite, Offline Sync, Push Notifications</div>
+    </div>
+
+    <div class="project-entry">
+      <div class="project-header">
+        <span class="project-name">Pulpit Mobility</span>
+        <span class="project-meta">6 months &middot; Lead Flutter Developer &middot; Play Store &middot; 5+ Cities</span>
+      </div>
+      <div class="project-subtitle">Enterprise Transportation Platform &middot; Real-Time WebSocket Tracking</div>
+      <div class="project-desc">Real-time ride booking with WebSocket live driver tracking, Google Maps geofencing, offline-resilient architecture, and multi-gateway payment processing across 5+ cities.</div>
+      <div class="project-stack"><strong>Stack:</strong> Flutter, Firebase, Google Maps, WebSocket, Payment Gateway, BLoC</div>
+    </div>
+
+    <div class="project-entry">
+      <div class="project-header">
+        <span class="project-name">MyRCloud Recruitment Platform</span>
+        <span class="project-meta">8 months &middot; Lead Flutter Developer &middot; Android, iOS, Web</span>
+      </div>
+      <div class="project-subtitle">Multi-Platform HR Ecosystem &middot; 5K+ Candidates &middot; 85% Shared Code</div>
+      <div class="project-desc">True cross-platform recruitment ecosystem with HRMS integration, WebSocket real-time notifications, and role-based access control across Android, iOS, and Flutter Web from a single codebase.</div>
+      <div class="project-stack"><strong>Stack:</strong> Flutter, Flutter Web, REST API, WebSocket, HRMS, RBAC</div>
+    </div>
+
+    <div class="project-entry">
+      <div class="project-header">
+        <span class="project-name">LIVING (Godrej Living &mdash; Real Estate Project)</span>
+        <span class="project-meta">8 months &middot; Lead Flutter Developer &middot; Android, iOS, Web</span>
+      </div>
+      <div class="project-subtitle">Enterprise Real Estate &amp; Community Platform &middot; Operational Efficiency +60%</div>
+      <div class="project-desc">End-to-end real estate and gated community management platform with QR visitor verification, gate security, maintenance requests, and real-time notifications for enterprise property management.</div>
+      <div class="project-stack"><strong>Stack:</strong> Flutter, Node.js, REST API, QR Verification, Push Notifications, BLoC</div>
+    </div>
+
+    <div class="projects-sub-title more">&#128229; More Projects</div>
+    <div class="more-projects-grid">
+      <div class="more-project-item"><strong>ZingHR Onboarding</strong> <span>(Enterprise HR &middot; 1,000+ Users &middot; Play Store &amp; App Store)</span></div>
+      <div class="more-project-item"><strong>NCH Enterprise Solution</strong> <span>(Multi-Branch Business Software &middot; Web, Desktop)</span></div>
+      <div class="more-project-item"><strong>SAH INVESTMENT</strong> <span>(Financial Management &middot; Android, iOS)</span></div>
+      <div class="more-project-item"><strong>Magicrete Sarthak</strong> <span>(Employee Engagement &middot; +35% Engagement)</span></div>
+      <div class="more-project-item"><strong>DG Ferry Agent Booking Platform</strong> <span>(Maritime &middot; Offline-First &middot; Play Store &amp; App Store)</span></div>
+      <div class="more-project-item"><strong>DG Sea Connect</strong> <span>(Maritime Enterprise Workflow &middot; Secure)</span></div>
+      <div class="more-project-item"><strong>Manier De Voir</strong> <span>(Premium Fashion E-Commerce &middot; 4.5&#9733; Rating)</span></div>
+      <div class="more-project-item"><strong>YONETI</strong> <span>(Shop Management &middot; Dual-Role Platform)</span></div>
+    </div>
+  </div>
+
+  <!-- ── PROFESSIONAL HIGHLIGHTS ── -->
+  <div class="section">
+    <div class="section-title">Professional Highlights</div>
+    <ul class="highlights-list">
+      <li><strong>100K+ Downloads:</strong> Magicrete BuildMart reached 100K+ Play Store downloads with an offline-first SQLite architecture serving pan-India construction operations.</li>
+      <li><strong>8+ Published Apps:</strong> Deployed 8+ applications on Play Store and App Store across transportation, construction, maritime, HR, and fashion verticals.</li>
+      <li><strong>CI/CD Automation:</strong> Implemented GitHub Actions + Fastlane pipelines achieving a 60% reduction in deployment cycles across multiple simultaneous projects.</li>
+      <li><strong>Cross-Platform:</strong> Delivered production-grade applications across Android, iOS, Flutter Web, and Windows Desktop from a single Dart codebase.</li>
+      <li><strong>AI Integrations:</strong> Integrated OpenAI, Gemini, and Claude APIs into production workflows; built OCR, voice assistant, and face verification modules.</li>
+    </ul>
+  </div>
+
+  <!-- ── EDUCATION ── -->
+  <div class="section">
+    <div class="section-title">Education</div>
+    <div class="edu-entry">
+      <div>
+        <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
+        <div class="edu-institution">Veer Narmad South Gujarat University &middot; Surat, Gujarat</div>
+      </div>
+      <div class="edu-year">2015 &ndash; 2018</div>
+    </div>
+  </div>
+
+  <!-- ── ADDITIONAL EXPERIENCE ── -->
+  <div class="section">
+    <div class="section-title">Additional Experience</div>
+
+    <div class="additional-entry">
+      <div class="add-header">
+        <span>
+          <span class="add-company">VI Store</span>
+          &nbsp;&mdash;&nbsp;
+          <span class="add-role">Store Manager</span>
+        </span>
+        <span class="add-duration">April 2019 &ndash; June 2022</span>
+      </div>
+      <ul class="add-bullets">
+        <li>Managed daily retail operations, customer relationships, and staff coordination for a team of 8+ members.</li>
+      </ul>
+    </div>
+
+    <div class="additional-entry">
+      <div class="add-header">
+        <span>
+          <span class="add-company">7 Star Infotech</span>
+          &nbsp;&mdash;&nbsp;
+          <span class="add-role">Android Developer</span>
+        </span>
+        <span class="add-duration">August 2018 &ndash; February 2019</span>
+      </div>
+      <ul class="add-bullets">
+        <li>Built 3+ native Android applications from scratch using Java and Kotlin, covering REST API integration and custom XML UI layouts.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ── LANGUAGES ── -->
+  <div class="section">
+    <div class="section-title">Languages</div>
+    <div class="lang-row">
+      <span class="skill-tag expert">English (Professional)</span>
+      <span class="skill-tag expert">Gujarati (Native)</span>
+      <span class="skill-tag expert">Hindi (Fluent)</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  if (window.location.search.includes('print=1')) {
+    window.addEventListener('load', () => setTimeout(() => window.print(), 500));
+  }
+</script>
+</body>
+</html>

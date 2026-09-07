@@ -206,11 +206,12 @@ export default function Hero() {
         {/* Eyebrow / Intro */}
         <div ref={introLabelRef} className="hero-intro-label">
           <span className="hero-intro-dot" />
-          HELLO, I&apos;M
+          HELLO, I&apos;M CHIRAG SHYANI
         </div>
 
         {/* Main Role Title */}
         <h1 className="hero-main-title">
+          <span className="sr-only">Chirag Shyani — </span>
           <span className="title-mask">
             <span ref={titleLine1Ref} className="title-line">
               Senior Flutter &amp;
@@ -689,45 +690,46 @@ export default function Hero() {
 
         @media (max-width: 768px) {
           .hero-section {
+            min-height: 100svh;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             padding-top: 5.5rem;
-            padding-bottom: 3rem;
+            padding-bottom: 3.5rem;
           }
           .hero-left-zone {
             margin-left: 1.25rem;
             margin-right: 1.25rem;
           }
           .hero-main-title {
-            font-size: clamp(2rem, 7.8vw, 2.75rem);
-            line-height: 1.12;
+            font-size: clamp(2.2rem, 8vw, 3rem);
+            line-height: 1.15;
           }
           .hero-artwork-canvas {
-            height: 38vh;
-            min-height: 260px;
-            max-width: 100%;
-            overflow: hidden;
-            margin-top: 1rem;
+            display: none !important;
           }
-          :global(.hero-artwork-img) {
-            object-fit: contain !important;
-            object-position: 50% bottom !important;
+          .hero-right-edge-blur {
+            display: none !important;
           }
           .hero-description-text {
-            font-size: 0.88rem;
-            line-height: 1.55;
-            margin-bottom: 1.4rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.6rem;
+            max-width: 520px;
           }
           .hero-cta-buttons {
-            gap: 0.75rem;
+            gap: 0.85rem;
           }
           .hero-btn-primary,
           .hero-btn-secondary {
-            padding: 0.72rem 1.35rem;
-            font-size: 0.8rem;
+            padding: 0.8rem 1.5rem;
+            font-size: 0.85rem;
           }
           .hero-bottom-left-tag {
-            font-size: 0.56rem;
+            font-size: 0.6rem;
             letter-spacing: 0.14em;
-            margin-top: 1.4rem;
+            margin-top: 1.8rem;
           }
         }
       `}</style>

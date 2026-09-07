@@ -41,7 +41,7 @@ export default function Contact() {
           </div>
 
           {/* CTA */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center', marginBottom: '3rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.85rem', alignItems: 'center', marginBottom: '3rem' }}>
             <a
               href={`mailto:${personal.email}`}
               className="btn btn-red"
@@ -51,12 +51,30 @@ export default function Contact() {
               Let&apos;s Talk →
             </a>
             <a
-              href={personal.resumeUrl}
-              download
+              href={personal.resumePdfUrl || '/resume.pdf'}
+              download="Chirag_Shyani_Resume.pdf"
               className="btn btn-outline"
               data-cursor="DOWNLOAD"
             >
-              Download Resume ↓
+              Download Resume (PDF) ↓
+            </a>
+            <a
+              href={personal.resumeUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-outline"
+              data-cursor="OPEN"
+            >
+              1-Page Resume ↗
+            </a>
+            <a
+              href={personal.cvUrl || '/cv.html'}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-outline"
+              data-cursor="OPEN"
+            >
+              Detailed CV ↗
             </a>
           </div>
 
