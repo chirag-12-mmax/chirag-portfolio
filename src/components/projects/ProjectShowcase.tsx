@@ -166,17 +166,23 @@ export default function ProjectShowcase() {
                   display: 'inline-block',
                 }}
               />
-              Additional Specialized Work & Explorations
+              More Solutions I Build
             </div>
 
+            {/* Two groups: full solution cards (with description) and compact module cards */}
+            {[moreProjects.filter((p) => p.description), moreProjects.filter((p) => !p.description)].map(
+              (group, gi) =>
+                group.length > 0 && (
             <div
+              key={gi}
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
                 gap: '1rem',
+                marginTop: gi > 0 ? '1rem' : 0,
               }}
             >
-              {moreProjects.map((p) => (
+              {group.map((p) => (
                 <div
                   key={p.name}
                   style={{
@@ -216,9 +222,44 @@ export default function ProjectShowcase() {
                   >
                     {p.detail}
                   </div>
+                  {p.description && (
+                    <p
+                      style={{
+                        fontSize: '0.84rem',
+                        color: 'var(--muted)',
+                        lineHeight: 1.6,
+                        margin: '0.8rem 0 0',
+                      }}
+                    >
+                      {p.description}
+                    </p>
+                  )}
+                  {p.features && p.features.length > 0 && (
+                    <ul
+                      style={{
+                        listStyle: 'none',
+                        padding: 0,
+                        margin: '0.85rem 0 0',
+                        display: 'grid',
+                        gap: '0.4rem',
+                      }}
+                    >
+                      {p.features.map((f) => (
+                        <li
+                          key={f}
+                          style={{ display: 'flex', gap: '0.5rem', fontSize: '0.8rem', color: '#ddd', lineHeight: 1.45 }}
+                        >
+                          <span style={{ color: 'var(--red)', fontSize: '0.55rem', marginTop: '0.32rem' }}>◆</span>
+                          <span>{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               ))}
             </div>
+                ),
+            )}
           </div>
         </div>
       )}

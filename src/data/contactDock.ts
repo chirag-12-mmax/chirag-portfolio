@@ -1,14 +1,15 @@
 import type { IconType } from 'react-icons';
 import {
   FaGithub,
-  FaXTwitter,
+  FaWhatsapp,
   FaLinkedinIn,
-  FaInstagram,
-  FaFacebookF,
-  FaDiscord,
+  FaPhone,
+  FaCalendarCheck,
+  FaFileLines,
 } from 'react-icons/fa6';
 import { HiOutlineMail } from 'react-icons/hi';
 import { personal } from '@/lib/data';
+import { BOOK_CALL_URL, PHONE_E164, whatsappUrl } from '@/lib/site';
 
 export interface ContactDockItem {
   id: string;
@@ -35,12 +36,12 @@ export const contactDockItems: ContactDockItem[] = [
     ariaLabel: 'Open GitHub profile',
   },
   {
-    id: 'twitter',
+    id: 'whatsapp',
     letter: 'O',
-    label: 'X',
-    icon: FaXTwitter,
-    url: '', // Real URL not currently in portfolio; update here when available
-    ariaLabel: 'Open X profile',
+    label: 'WhatsApp',
+    icon: FaWhatsapp,
+    url: whatsappUrl(),
+    ariaLabel: 'Chat with Chirag on WhatsApp',
   },
   {
     id: 'linkedin',
@@ -51,20 +52,20 @@ export const contactDockItems: ContactDockItem[] = [
     ariaLabel: 'Open LinkedIn profile',
   },
   {
-    id: 'instagram',
+    id: 'phone',
     letter: 'T',
-    label: 'Instagram',
-    icon: FaInstagram,
-    url: '', // Real URL not currently in portfolio; update here when available
-    ariaLabel: 'Open Instagram profile',
+    label: 'Call',
+    icon: FaPhone,
+    url: `tel:${PHONE_E164}`,
+    ariaLabel: 'Call Chirag',
   },
   {
-    id: 'facebook',
+    id: 'book-call',
     letter: 'A',
-    label: 'Facebook',
-    icon: FaFacebookF,
-    url: '', // Real URL not currently in portfolio; update here when available
-    ariaLabel: 'Open Facebook profile',
+    label: 'Book Call',
+    icon: FaCalendarCheck,
+    url: BOOK_CALL_URL,
+    ariaLabel: 'Book a call with Chirag',
   },
   {
     id: 'email',
@@ -75,11 +76,11 @@ export const contactDockItems: ContactDockItem[] = [
     ariaLabel: 'Send email to Chirag',
   },
   {
-    id: 'discord',
+    id: 'resume',
     letter: 'T',
-    label: 'Discord',
-    icon: FaDiscord,
-    url: '', // Real URL not currently in portfolio; update here when available
-    ariaLabel: 'Connect on Discord',
+    label: 'Resume',
+    icon: FaFileLines,
+    url: personal.resumeUrl,
+    ariaLabel: 'Open resume',
   },
 ];

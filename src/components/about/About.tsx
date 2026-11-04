@@ -149,9 +149,9 @@ export default function About() {
         {/* Identity tags row */}
         <div className="about-reveal" style={{ marginTop: '4rem', display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
           {[
-            'Android', 'iOS', 'Flutter Web', 'Desktop', 'SaaS',
-            'AI APIs', 'Cloud', 'Real-Time', 'Clean Architecture',
-            'Biometrics', 'Payment Gateways', 'Hardware SDKs', 'CI/CD', 'Team Lead',
+            'Next.js', 'Vue.js', 'Node.js', 'Python', 'Android', 'iOS', 'Desktop',
+            'AI Automation', 'AI Image Gen', 'Shopify Apps', 'CRM', 'Payroll',
+            'SaaS', 'Payment Gateways', 'SEO', 'Tech Lead', 'Mentor',
           ].map(tag => (
             <span
               key={tag}

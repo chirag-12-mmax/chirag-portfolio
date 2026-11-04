@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState, useCallback } from 'react';
 import type { Project } from '@/types';
-import FloatingProjectCard, { CARD_WIDTH, CARD_HEIGHT } from './FloatingProjectCard';
+import FloatingProjectCard from './FloatingProjectCard';
 import ActiveProject from './ActiveProject';
 
 interface FloatingProjectStageProps {

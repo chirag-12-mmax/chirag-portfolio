@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Project } from '@/types';
 import { getLenis } from '@/lib/lenis';
@@ -329,8 +330,30 @@ export default function ProjectDetailsModal({
                   marginBottom: '0.5rem',
                 }}
               >
-                PROJECT {project.index} // CASE STUDY
+                PROJECT {project.index}{' // '}{project.status === 'in-development' ? 'CURRENTLY BUILDING' : 'CASE STUDY'}
               </div>
+              {project.status === 'in-development' && (
+                <div
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    marginBottom: '0.9rem',
+                    padding: '0.3rem 0.75rem',
+                    border: '1px solid rgba(249, 115, 22, 0.45)',
+                    background: 'rgba(249, 115, 22, 0.1)',
+                    borderRadius: '999px',
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.65rem',
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    color: '#fdba74',
+                  }}
+                >
+                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#f97316' }} />
+                  In active development
+                </div>
+              )}
               <h2
                 id="modal-project-title"
                 className="display"
@@ -613,6 +636,62 @@ export default function ProjectDetailsModal({
                   Live Application ↗
                 </a>
               )}
+              <Link
+                href={`/projects/${project.id}`}
+                style={{
+                  padding: '0.65rem 1.4rem',
+                  border: '1px solid var(--border-red)',
+                  borderRadius: '3px',
+                  color: 'var(--white)',
+                  textDecoration: 'none',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.72rem',
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                Full Case Study →
+              </Link>
+              {project.demoUrl && (
+                <a
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    padding: '0.65rem 1.4rem',
+                    background: 'var(--red)',
+                    borderRadius: '3px',
+                    color: 'var(--white)',
+                    textDecoration: 'none',
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.72rem',
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                    fontWeight: 600,
+                  }}
+                >
+                  View Demo ↗
+                </a>
+              )}
+              {project.status === 'in-development' && !project.demoUrl && (
+                <a
+                  href={`mailto:chirag.shyani17@gmail.com?subject=${encodeURIComponent(`Demo request: ${project.name}`)}`}
+                  style={{
+                    padding: '0.65rem 1.4rem',
+                    background: 'var(--red)',
+                    borderRadius: '3px',
+                    color: 'var(--white)',
+                    textDecoration: 'none',
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.72rem',
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                    fontWeight: 600,
+                  }}
+                >
+                  {project.liveUrl ? 'Request App Demo ↗' : 'Request a Live Demo ↗'}
+                </a>
+              )}
             </div>
 
             {/* Problem & Solution (2-Column Grid) */}
@@ -773,6 +852,93 @@ export default function ProjectDetailsModal({
                     </div>
                   ))}
                 </div>
+              </div>
+            )}
+
+            {/* Feature Modules (by surface: web / mobile / admin) */}
+            {project.featureModules && project.featureModules.length > 0 && (
+              <div style={{ marginBottom: '2.5rem' }}>
+                <div
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.68rem',
+                    letterSpacing: '0.15em',
+                    color: 'var(--muted)',
+                    textTransform: 'uppercase',
+                    marginBottom: '1rem',
+                  }}
+                >
+                  Feature Modules
+                </div>
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+                    gap: '1rem',
+                  }}
+                >
+                  {project.featureModules.map((mod) => (
+                    <div
+                      key={mod.title}
+                      style={{
+                        padding: '1.1rem 1.25rem',
+                        background: 'rgba(255, 255, 255, 0.02)',
+                        border: '1px solid rgba(255, 255, 255, 0.07)',
+                        borderRadius: '4px',
+                      }}
+                    >
+                      <h4 style={{ color: 'var(--white)', fontSize: '0.95rem', marginBottom: '0.7rem' }}>
+                        {mod.title}
+                      </h4>
+                      <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: '0.45rem' }}>
+                        {mod.items.map((item) => (
+                          <li key={item} style={{ display: 'flex', gap: '0.55rem', fontSize: '0.84rem', color: '#ddd', lineHeight: 1.5 }}>
+                            <span style={{ color: 'var(--red)', fontSize: '0.6rem', marginTop: '0.35rem' }}>◆</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Project Goals / Roadmap */}
+            {project.roadmap && project.roadmap.length > 0 && (
+              <div style={{ marginBottom: '2.5rem' }}>
+                <div
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.68rem',
+                    letterSpacing: '0.15em',
+                    color: 'var(--muted)',
+                    textTransform: 'uppercase',
+                    marginBottom: '1rem',
+                  }}
+                >
+                  {project.status === 'in-development' ? 'Goals & Roadmap' : 'Project Goals'}
+                </div>
+                <ol style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: '0.6rem' }}>
+                  {project.roadmap.map((goal, i) => (
+                    <li
+                      key={goal}
+                      style={{
+                        display: 'flex',
+                        gap: '0.9rem',
+                        alignItems: 'baseline',
+                        fontSize: '0.9rem',
+                        color: '#eee',
+                        lineHeight: 1.55,
+                      }}
+                    >
+                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--red)' }}>
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <span>{goal}</span>
+                    </li>
+                  ))}
+                </ol>
               </div>
             )}
 

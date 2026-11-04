@@ -1,6 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import { personal } from '@/lib/data';
+import { BOOK_CALL_URL, PHONE_E164, whatsappUrl } from '@/lib/site';
 
 export default function Contact() {
   return (
@@ -43,12 +44,30 @@ export default function Contact() {
           {/* CTA */}
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.85rem', alignItems: 'center', marginBottom: '3rem' }}>
             <a
-              href={`mailto:${personal.email}`}
+              href={whatsappUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-red"
-              data-cursor="EMAIL"
+              data-cursor="CHAT"
               style={{ fontSize: '0.8rem' }}
             >
-              Let&apos;s Talk →
+              Chat on WhatsApp ↗
+            </a>
+            <a
+              href={BOOK_CALL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-outline"
+              data-cursor="CALL"
+            >
+              Book a Free Call ↗
+            </a>
+            <a
+              href={`mailto:${personal.email}?subject=${encodeURIComponent('Project enquiry')}`}
+              className="btn btn-outline"
+              data-cursor="EMAIL"
+            >
+              Email Me →
             </a>
             <a
               href={personal.resumePdfUrl || '/resume.pdf'}
@@ -84,7 +103,7 @@ export default function Contact() {
               { label: 'LinkedIn', href: personal.linkedin },
               { label: 'GitHub', href: personal.github },
               { label: 'Email', href: `mailto:${personal.email}` },
-              { label: 'Portfolio (Legacy)', href: personal.portfolio },
+              { label: `Call ${personal.phone}`, href: `tel:${PHONE_E164}` },
             ].map(link => (
               <a
                 key={link.label}
@@ -112,7 +131,7 @@ export default function Contact() {
             fontFamily: 'var(--font-mono)', fontSize: '0.65rem',
             letterSpacing: '0.12em', color: 'var(--muted-2)', textTransform: 'uppercase',
           }}>
-            📍 {personal.location} · Open to remote &amp; relocation
+            📍 {personal.location} · Working with clients worldwide · Reply within {personal.responseTime}
           </div>
         </motion.div>
       </div>

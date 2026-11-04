@@ -1,5 +1,6 @@
 'use client';
 import { useState, useCallback } from 'react';
+import Link from 'next/link';
 import { useLenis } from '@/lib/lenis';
 import LoadingScreen from '@/components/loading/LoadingScreen';
 import CinematicCursor from '@/components/cursor/CinematicCursor';
@@ -13,11 +14,10 @@ import Experience from '@/components/experience/Experience';
 import AISection from '@/components/ai/AISection';
 import Hardware from '@/components/hardware/Hardware';
 import Services from '@/components/services/Services';
-import Testimonials from '@/components/testimonials/Testimonials';
 import Highlights from '@/components/highlights/Highlights';
 import Architecture from '@/components/architecture/Architecture';
 import Contact from '@/components/contact/Contact';
-import ATSResume from '@/components/ats/ATSResume';
+import Process from '@/components/process/Process';
 
 function PortfolioContent() {
   useLenis();
@@ -35,7 +35,7 @@ function PortfolioContent() {
         <AISection />
         <Hardware />
         <Services />
-        <Testimonials />
+        <Process />
         <Highlights />
         <Architecture />
         <Contact />
@@ -51,7 +51,9 @@ function PortfolioContent() {
         background: 'var(--bg)',
       }}>
         <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '0.1em', color: 'var(--muted)', textTransform: 'uppercase' }}>
-          © {new Date().getFullYear()} Chirag Shyani · Senior Flutter Developer & Technical Lead
+          © {new Date().getFullYear()} Chirag Shyani · Tech Lead & Senior Full-Stack Developer ·{' '}
+          <Link href="/projects" style={{ color: 'inherit' }}>Projects</Link> ·{' '}
+          <Link href="/services" style={{ color: 'inherit' }}>Services</Link>
         </span>
         <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '0.08em', color: 'var(--muted-2)', textTransform: 'uppercase' }}>
           Next.js · GSAP · Framer Motion · Lenis
@@ -67,16 +69,9 @@ export default function Home() {
 
   return (
     <>
-      <ATSResume />
       {!loaded && <LoadingScreen onComplete={handleComplete} />}
-      <div
-        style={{
-          opacity: loaded ? 1 : 0,
-          transition: 'opacity 0.4s ease',
-        }}
-      >
-        <PortfolioContent />
-      </div>
+      {/* Content renders immediately (good for SEO / LCP); the loader is a fixed overlay on top. */}
+      <PortfolioContent />
     </>
   );
 }

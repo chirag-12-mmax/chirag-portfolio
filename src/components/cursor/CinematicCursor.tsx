@@ -10,7 +10,9 @@ export default function CinematicCursor() {
   useEffect(() => {
     // Only on non-touch devices
     if (typeof window === 'undefined' || 'ontouchstart' in window) return;
-    setMounted(true);
+    // Defer to the next frame so the state update isn't synchronous inside the effect.
+    const id = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(id);
   }, []);
 
   useEffect(() => {

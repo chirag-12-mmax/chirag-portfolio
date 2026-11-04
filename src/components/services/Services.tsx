@@ -2,6 +2,7 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { services } from '@/lib/data';
 
@@ -30,7 +31,7 @@ export default function Services() {
             SERVICES
           </h2>
           <p className="services-heading" style={{ fontFamily: 'var(--font-body)', fontSize: '0.85rem', color: 'var(--muted)', maxWidth: 320 }}>
-            End-to-end mobile engineering — from architecture and development to deployment and leadership.
+            Web, mobile, desktop, AI and business software — planned, built, launched and supported by one accountable tech lead.
           </p>
         </div>
 
@@ -101,6 +102,21 @@ export default function Services() {
                   </div>
                 ))}
               </div>
+              <Link
+                href={`/services/${service.slug}`}
+                data-cursor="OPEN"
+                style={{
+                  marginTop: '1rem',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.68rem',
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  color: 'var(--red)',
+                  textDecoration: 'none',
+                }}
+              >
+                Learn more →
+              </Link>
             </motion.div>
           ))}
         </div>
@@ -116,6 +132,9 @@ export default function Services() {
           <a href="#contact" className="btn btn-red" data-cursor="CONTACT">
             Discuss Your Project →
           </a>
+          <Link href="/services" className="btn btn-outline" data-cursor="OPEN">
+            All Services
+          </Link>
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted)', letterSpacing: '0.08em' }}>
             Response within {`< 24 hours`}
           </span>

@@ -45,8 +45,8 @@ export default function AISection() {
             fontFamily: 'var(--font-body)', fontSize: '1rem',
             color: 'var(--muted)', lineHeight: 1.8, maxWidth: 600, marginBottom: '3rem',
           }}>
-            I use AI to accelerate product engineering and build AI-powered product experiences —
-            not just as a developer tool, but as a core part of the product itself.
+            I build AI automation software and AI image-generation products for businesses —
+            chatbots, document automation, smart workflows and text-to-image tools built into your product.
           </p>
         </motion.div>
 

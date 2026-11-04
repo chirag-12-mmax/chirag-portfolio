@@ -2,10 +2,10 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Chirag Shyani — Senior Flutter Developer & Technical Lead',
+    name: 'Chirag Shyani — Tech Lead & Senior Full-Stack Developer',
     short_name: 'Chirag Shyani',
     description:
-      'Portfolio of Chirag Shyani, Senior Flutter Developer & Technical Lead with 5+ years of experience building mobile, web, and enterprise solutions.',
+      'Portfolio of Chirag Shyani, Tech Lead & Senior Full-Stack Developer with 8+ years of experience building web, mobile, desktop, AI and business software.',
     start_url: '/',
     display: 'standalone',
     background_color: '#050507',

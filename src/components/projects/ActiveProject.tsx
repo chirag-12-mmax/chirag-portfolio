@@ -66,7 +66,7 @@ export default function ActiveProject({
             <span>PROJECT {project.index}</span>
             {project.businessDomain && (
               <>
-                <span style={{ opacity: 0.4 }}>//</span>
+                <span style={{ opacity: 0.4 }}>{'//'}</span>
                 <span style={{ color: 'rgba(255, 255, 255, 0.95)' }}>
                   {project.businessDomain}
                 </span>

@@ -37,7 +37,7 @@ export default function Highlights() {
             HIGHLIGHTS
           </h2>
           <p className="highlights-heading" style={{ fontFamily: 'var(--font-body)', fontSize: '0.85rem', color: 'var(--muted)', maxWidth: 300 }}>
-            Key achievements and milestones from 5+ years of engineering.
+            Key achievements and milestones from 8+ years of building software.
           </p>
         </div>
 

@@ -69,7 +69,7 @@ export default function Experience() {
           {/* Leading line */}
           <div style={{ width: 80, height: 1, background: 'var(--border)', flexShrink: 0, alignSelf: 'center' }} />
 
-          {experiences.map((exp, i) => (
+          {experiences.map((exp) => (
             <div
               key={exp.company}
               className="h-timeline-item"

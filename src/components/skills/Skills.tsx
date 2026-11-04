@@ -23,13 +23,13 @@ const SKILLS: Skill[] = [
   // ── Mobile Development ──────────────────────────────────────────────────────
   { id: 'flutter',     label: 'Flutter',           cat: 'mobile',    depth: 2, x: 7,  y: 14, amp: 10, spd: 0.70 },
   { id: 'dart',        label: 'Dart',              cat: 'mobile',    depth: 1, x: 3,  y: 36, amp: 8,  spd: 0.90 },
-  { id: 'android',     label: 'Android SDK',       cat: 'mobile',    depth: 2, x: 14, y: 56, amp: 9,  spd: 0.80 },
-  { id: 'ios',         label: 'iOS',               cat: 'mobile',    depth: 0, x: 4,  y: 74, amp: 6,  spd: 1.00 },
+  { id: 'android',     label: 'Android Native',    cat: 'mobile',    depth: 2, x: 14, y: 56, amp: 9,  spd: 0.80 },
+  { id: 'ios',         label: 'iOS Native',        cat: 'mobile',    depth: 0, x: 4,  y: 74, amp: 6,  spd: 1.00 },
   { id: 'kotlin',      label: 'Kotlin',            cat: 'mobile',    depth: 1, x: 19, y: 88, amp: 7,  spd: 1.10 },
   // ── Architecture & State ────────────────────────────────────────────────────
   { id: 'clean',       label: 'Clean Architecture',cat: 'arch',      depth: 1, x: 24, y: 20, amp: 8,  spd: 0.85 },
   { id: 'mvvm',        label: 'MVVM',              cat: 'arch',      depth: 2, x: 30, y: 42, amp: 10, spd: 0.90 },
-  { id: 'getx',        label: 'GetX',              cat: 'arch',      depth: 0, x: 21, y: 63, amp: 5,  spd: 1.20 },
+  { id: 'swift',       label: 'Swift',             cat: 'mobile',      depth: 0, x: 21, y: 63, amp: 5,  spd: 1.20 },
   { id: 'bloc',        label: 'BLoC',              cat: 'arch',      depth: 2, x: 33, y: 81, amp: 9,  spd: 0.95 },
   { id: 'riverpod',    label: 'Riverpod',          cat: 'arch',      depth: 1, x: 15, y: 30, amp: 7,  spd: 0.85 },
   { id: 'provider',    label: 'Provider',          cat: 'arch',      depth: 0, x: 10, y: 49, amp: 6,  spd: 1.05 },
@@ -42,23 +42,23 @@ const SKILLS: Skill[] = [
   { id: 'python',      label: 'Python',            cat: 'backend',   depth: 0, x: 35, y: 26, amp: 5,  spd: 0.95 },
   // ── Cloud & Firebase ────────────────────────────────────────────────────────
   { id: 'firebase',    label: 'Firebase',          cat: 'cloud',     depth: 2, x: 62, y: 12, amp: 10, spd: 0.80 },
-  { id: 'firestore',   label: 'Firestore',         cat: 'cloud',     depth: 1, x: 68, y: 34, amp: 8,  spd: 1.00 },
-  { id: 'fcm',         label: 'FCM',               cat: 'cloud',     depth: 0, x: 57, y: 54, amp: 5,  spd: 1.10 },
+  { id: 'nextjs',      label: 'Next.js',           cat: 'web',     depth: 1, x: 68, y: 34, amp: 8,  spd: 1.00 },
+  { id: 'vue',         label: 'Vue.js',            cat: 'web',     depth: 0, x: 57, y: 54, amp: 5,  spd: 1.10 },
   { id: 'gcloud',      label: 'Google Cloud',      cat: 'cloud',     depth: 2, x: 72, y: 70, amp: 9,  spd: 0.90 },
-  { id: 'cloudflare',  label: 'Cloudflare',        cat: 'cloud',     depth: 1, x: 64, y: 86, amp: 7,  spd: 1.00 },
+  { id: 'react',       label: 'React',             cat: 'web',     depth: 1, x: 64, y: 86, amp: 7,  spd: 1.00 },
   { id: 'sqlite',      label: 'SQLite',            cat: 'cloud',     depth: 0, x: 55, y: 38, amp: 6,  spd: 1.20 },
-  { id: 'offline',     label: 'Offline Sync',      cat: 'cloud',     depth: 0, x: 27, y: 76, amp: 5,  spd: 1.00 },
+  { id: 'payroll',     label: 'Payroll Systems',   cat: 'business',     depth: 0, x: 27, y: 76, amp: 5,  spd: 1.00 },
   // ── AI & Intelligent Features ────────────────────────────────────────────────
   { id: 'ai-int',      label: 'AI Integration',    cat: 'ai',        depth: 2, x: 82, y: 16, amp: 11, spd: 0.70 },
-  { id: 'google-ai',   label: 'Google AI',         cat: 'ai',        depth: 1, x: 88, y: 38, amp: 8,  spd: 1.00 },
+  { id: 'ai-auto',     label: 'AI Automation',     cat: 'ai',        depth: 1, x: 88, y: 38, amp: 8,  spd: 1.00 },
   { id: 'ai-search',   label: 'AI Search',         cat: 'ai',        depth: 0, x: 78, y: 56, amp: 6,  spd: 1.10 },
   { id: 'vto',         label: 'Virtual Try-On',    cat: 'ai',        depth: 2, x: 86, y: 74, amp: 10, spd: 0.95 },
-  { id: 'cf-ai',       label: 'Cloudflare AI',     cat: 'ai',        depth: 1, x: 93, y: 54, amp: 7,  spd: 0.90 },
+  { id: 'ai-image',    label: 'AI Image Gen',      cat: 'ai',        depth: 1, x: 93, y: 54, amp: 7,  spd: 0.90 },
   // ── Security ────────────────────────────────────────────────────────────────
   { id: 'oauth',       label: 'OAuth 2.0',         cat: 'security',  depth: 1, x: 34, y: 60, amp: 8,  spd: 1.00 },
   { id: 'biometric',   label: 'Biometric Auth',    cat: 'security',  depth: 2, x: 55, y: 20, amp: 9,  spd: 0.85 },
   { id: 'encrypt',     label: 'Encryption',        cat: 'security',  depth: 0, x: 25, y: 7,  amp: 5,  spd: 1.00 },
-  { id: '2fa',         label: '2FA',               cat: 'security',  depth: 1, x: 74, y: 46, amp: 7,  spd: 1.00 },
+  { id: 'llm',         label: 'OpenAI / Claude',   cat: 'ai',  depth: 1, x: 74, y: 46, amp: 7,  spd: 1.00 },
   { id: 'face',        label: 'Face Verify',       cat: 'security',  depth: 0, x: 48, y: 76, amp: 6,  spd: 1.20 },
   // ── Payments ────────────────────────────────────────────────────────────────
   { id: 'razorpay',    label: 'Razorpay',          cat: 'payment',   depth: 1, x: 38, y: 92, amp: 7,  spd: 0.95 },
@@ -69,14 +69,14 @@ const SKILLS: Skill[] = [
   { id: 'smart',       label: 'Smart Home',        cat: 'hardware',  depth: 2, x: 90, y: 88, amp: 10, spd: 0.90 },
   { id: 'gmaps',       label: 'Google Maps',       cat: 'hardware',  depth: 0, x: 93, y: 28, amp: 6,  spd: 1.10 },
   // ── Testing & Performance ───────────────────────────────────────────────────
-  { id: 'unit',        label: 'Unit Testing',      cat: 'testing',   depth: 0, x: 11, y: 6,  amp: 5,  spd: 1.00 },
-  { id: 'widget',      label: 'Widget Testing',    cat: 'testing',   depth: 1, x: 32, y: 6,  amp: 7,  spd: 0.90 },
+  { id: 'crm',         label: 'CRM Systems',       cat: 'business',   depth: 0, x: 11, y: 6,  amp: 5,  spd: 1.00 },
+  { id: 'desktop',     label: 'Desktop Apps',      cat: 'web',   depth: 1, x: 32, y: 6,  amp: 7,  spd: 0.90 },
   { id: 'perf',        label: 'Performance',       cat: 'testing',   depth: 0, x: 66, y: 6,  amp: 5,  spd: 1.00 },
   // ── Leadership & Delivery ────────────────────────────────────────────────────
   { id: 'git',         label: 'Git / GitHub',      cat: 'leadership',depth: 1, x: 82, y: 6,  amp: 7,  spd: 1.00 },
   { id: 'cicd',        label: 'CI/CD',             cat: 'leadership',depth: 2, x: 72, y: 22, amp: 9,  spd: 0.85 },
-  { id: 'team',        label: 'Team Leadership',   cat: 'leadership',depth: 0, x: 56, y: 80, amp: 5,  spd: 1.10 },
-  { id: 'shopify',     label: 'Shopify Dev',       cat: 'leadership',depth: 1, x: 90, y: 10, amp: 7,  spd: 1.00 },
+  { id: 'team',        label: 'Tech Lead & Mentor',cat: 'leadership',depth: 0, x: 56, y: 80, amp: 5,  spd: 1.10 },
+  { id: 'shopify',     label: 'Shopify Apps',      cat: 'business',depth: 1, x: 90, y: 10, amp: 7,  spd: 1.00 },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -92,20 +92,24 @@ const CAT: Record<string, { color: string; border: string; glow: string }> = {
   payment:   { color: '#f0c060', border: 'rgba(240,192,96,0.25)',  glow: 'rgba(240,192,96,0.14)'  },
   hardware:  { color: '#fb923c', border: 'rgba(251,146,60,0.25)',  glow: 'rgba(251,146,60,0.14)'  },
   testing:   { color: '#4ade80', border: 'rgba(74,222,128,0.25)',  glow: 'rgba(74,222,128,0.14)'  },
+  web:       { color: '#f472b6', border: 'rgba(244,114,182,0.25)', glow: 'rgba(244,114,182,0.14)' },
+  business:  { color: '#facc15', border: 'rgba(250,204,21,0.25)',  glow: 'rgba(250,204,21,0.14)'  },
   leadership:{ color: '#94a3b8', border: 'rgba(148,163,184,0.25)', glow: 'rgba(148,163,184,0.14)' },
 };
 
 const MOBILE_CATEGORIES = [
-  { id: 'mobile', label: 'Mobile Engineering', color: '#ff6b6b' },
+  { id: 'web', label: 'Web & Desktop', color: '#f472b6' },
+  { id: 'mobile', label: 'Android & iOS', color: '#ff6b6b' },
   { id: 'arch', label: 'Architecture & State', color: '#a0a0ff' },
   { id: 'backend', label: 'Backend & APIs', color: '#38bdf8' },
   { id: 'cloud', label: 'Cloud & Database', color: '#6bcfcf' },
-  { id: 'ai', label: 'AI & Intelligence', color: '#c084fc' },
+  { id: 'ai', label: 'AI Automation & Image Gen', color: '#c084fc' },
+  { id: 'business', label: 'Shopify, CRM & Payroll', color: '#facc15' },
   { id: 'security', label: 'Security & Auth', color: '#86efac' },
   { id: 'payment', label: 'Payments', color: '#f0c060' },
   { id: 'hardware', label: 'Hardware & Device SDKs', color: '#fb923c' },
-  { id: 'testing', label: 'Testing & Performance', color: '#4ade80' },
-  { id: 'leadership', label: 'Leadership & CI/CD', color: '#94a3b8' },
+  { id: 'testing', label: 'Performance', color: '#4ade80' },
+  { id: 'leadership', label: 'Tech Lead & CI/CD', color: '#94a3b8' },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────

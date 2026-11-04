@@ -28,6 +28,14 @@ export interface Project {
   solution?: string;
   businessImpact?: string;
   features?: string[];
+  // Live vs. currently-building projects
+  status?: 'live' | 'in-development';
+  /** Demo link (staging / preview build) for projects still in development */
+  demoUrl?: string;
+  /** Feature modules grouped by surface, e.g. Customer Web / Mobile App / Admin */
+  featureModules?: { title: string; items: string[] }[];
+  /** Goals / roadmap for in-development projects */
+  roadmap?: string[];
   // Cinematic Showcase extensions
   coverImage?: string;
   shortDescription?: string;
@@ -51,6 +59,8 @@ export interface Project {
 export interface MoreProject {
   name: string;
   detail: string;
+  description?: string;
+  features?: string[];
 }
 
 export interface Experience {
@@ -91,21 +101,29 @@ export interface EngineeringExpertise {
 }
 
 export interface Service {
+  slug: string;
   title: string;
+  /** Short SEO title for the service page, e.g. "Shopify App Developer" */
+  seoTitle: string;
+  /** Project ids (from src/data/projects.ts) shown as proof on the service page */
+  relatedProjects?: string[];
   description: string;
   icon: string;
   stat: string;
   features: string[];
 }
 
-export interface Testimonial {
-  name: string;
-  role: string;
-  company: string;
-  content: string;
-  rating: number;
-  initials: string;
-  accentColor: string;
+export interface ProcessStep {
+  step: string;
+  title: string;
+  description: string;
+}
+
+export interface EngagementModel {
+  title: string;
+  bestFor: string;
+  description: string;
+  points: string[];
 }
 
 export interface Highlight {

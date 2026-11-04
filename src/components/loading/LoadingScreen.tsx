@@ -24,15 +24,15 @@ export default function LoadingScreen({ onComplete }: Props) {
 
     // Countdown
     tl.fromTo(countEl, { opacity: 0 }, { opacity: 1, duration: 0.3 }, '+=0.2');
-    [5, 4, 3, 2, 1].forEach((n, i) => {
-      tl.call(() => setCount(n), [], `+=0.18`);
+    [5, 4, 3, 2, 1].forEach((n) => {
+      tl.call(() => setCount(n), [], `+=0.1`);
     });
 
     // Sub text
     tl.fromTo(subEl, { opacity: 0 }, { opacity: 1, duration: 0.4 }, '+=0.1');
 
     // Fade out loading screen
-    tl.to(screenRef.current, { opacity: 0, duration: 0.6, ease: 'power2.in', delay: 0.3 });
+    tl.to(screenRef.current, { opacity: 0, duration: 0.5, ease: 'power2.in', delay: 0.1 });
     tl.call(() => onComplete());
 
     return () => { tl.kill(); };

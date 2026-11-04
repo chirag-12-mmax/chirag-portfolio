@@ -22,7 +22,6 @@ export default function Hero() {
   const glowOverlayRef = useRef<HTMLDivElement>(null);
   const scriptTextRef = useRef<HTMLDivElement>(null);
   const warmSpotlightRef = useRef<HTMLDivElement>(null);
-  const bottomRightMetaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -214,12 +213,12 @@ export default function Hero() {
           <span className="sr-only">Chirag Shyani — </span>
           <span className="title-mask">
             <span ref={titleLine1Ref} className="title-line">
-              Senior Flutter &amp;
+              Tech Lead &amp;
             </span>
           </span>
           <span className="title-mask">
             <span ref={titleLine2Ref} className="title-line title-warm-accent">
-              Mobile App Developer
+              Full-Stack Developer
             </span>
           </span>
         </h1>
@@ -227,31 +226,31 @@ export default function Hero() {
         {/* Experience Line with Vertical Golden Accent Bar */}
         <div ref={expLineRef} className="hero-experience-line">
           <span className="exp-bar" />
-          <span className="exp-text">5+ Years of Experience</span>
+          <span className="exp-text">8+ Years of Experience</span>
         </div>
 
         {/* Description */}
         <p ref={descRef} className="hero-description-text">
-          Building scalable mobile, web and enterprise applications with
-          Flutter, modern architecture, AI integrations and production-grade
-          engineering.
+          I build websites, Android &amp; iOS apps, desktop software, AI
+          automation, Shopify apps, CRM and payroll systems — and lead the
+          team that ships them, from idea to launch.
         </p>
 
         {/* CTA Buttons */}
         <div ref={ctaRef} className="hero-cta-buttons">
           <a
-            href="#projects"
+            href="#contact"
             className="hero-btn-primary"
-            data-cursor="PROJECTS"
+            data-cursor="HIRE"
           >
-            View Projects <span className="btn-arrow">→</span>
+            Start Your Project <span className="btn-arrow">→</span>
           </a>
           <a
-            href="#about"
+            href="#projects"
             className="hero-btn-secondary"
-            data-cursor="ABOUT"
+            data-cursor="WORK"
           >
-            About Me
+            View My Work
           </a>
         </div>
 

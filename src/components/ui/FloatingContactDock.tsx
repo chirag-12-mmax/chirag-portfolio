@@ -217,6 +217,7 @@ export default function FloatingContactDock() {
           {contactDockItems.map((item, index) => {
             const Icon = item.icon;
             const hasRealUrl = Boolean(item.url);
+            const opensNewTab = hasRealUrl && /^https?:/.test(item.url);
             const isTooltipVisible = activeTooltip === item.id && isTransformed;
 
             return (
@@ -226,8 +227,8 @@ export default function FloatingContactDock() {
                   tileWrapperRefs.current[index] = el;
                 }}
                 href={hasRealUrl ? item.url : '#'}
-                target={hasRealUrl && !item.url.startsWith('mailto:') ? '_blank' : undefined}
-                rel={hasRealUrl && !item.url.startsWith('mailto:') ? 'noopener noreferrer' : undefined}
+                target={opensNewTab ? '_blank' : undefined}
+                rel={opensNewTab ? 'noopener noreferrer' : undefined}
                 aria-label={item.ariaLabel}
                 aria-disabled={!hasRealUrl}
                 data-cursor={hasRealUrl ? 'OPEN' : 'CONTACT'}

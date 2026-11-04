@@ -1,10 +1,120 @@
 import type { Project } from '@/types';
 
 export const projects: Project[] = [
-  // PROJECT 01 — LIVING / GODREJ LIVING
+  // PROJECT 01 — SHOPPOZONE (CURRENT PROJECT · WEBSITE LIVE, APP PRE-LAUNCH)
+  // TODO(chirag): add playStoreUrl / appStoreUrl once the app is published.
+  {
+    id: 'shoppozone',
+    index: '01',
+    name: 'Shoppozone',
+    title: 'Shoppozone — B2B Wholesale Commerce Website & Mobile App',
+    subtitle: 'B2B Wholesale Commerce Website & Mobile App',
+    meta: 'Current Project · Tech Lead · B2B Wholesale',
+    category: 'E-Commerce',
+    businessDomain: 'B2B Wholesale / E-Commerce',
+    projectType: 'Web + Mobile Commerce Platform',
+    platforms: ['Android', 'iOS', 'Web'],
+    role: 'Tech Lead & Lead Developer',
+    status: 'in-development',
+    description:
+      'Shoppozone connects retail shop owners, resellers and bulk buyers directly with wholesale suppliers. Buyers browse verified store catalogues, see carton and tiered wholesale pricing with MOQ, negotiate bulk prices with "Make a Deal", schedule delivery dates, and download GST-ready PDF tax invoices — on the web catalogue and the Android & iOS app.',
+    shortDescription:
+      'B2B wholesale platform for retailers and resellers: tiered pricing & MOQ, "Make a Deal" bulk negotiation, scheduled delivery, GST-ready PDF invoices, multi-store support. Website live, app in pre-launch.',
+    stack: [
+      'Flutter',
+      'GetX',
+      'Clean Architecture',
+      'Dio',
+      'PHP',
+      'MySQL',
+      'REST API',
+      'Firebase Cloud Messaging',
+      'Crashlytics',
+      'PDF Invoicing',
+    ],
+    features: [
+      'Tiered Wholesale Pricing & MOQ',
+      '"Make a Deal" Bulk Price Negotiation',
+      'Multi-Store & Branch Switching',
+      'Store-Scoped Cart & Wishlist',
+      'Scheduled Delivery Date at Checkout',
+      'GST-Ready PDF Tax Invoices with QR',
+      'Order Tracking (Pending → Delivered)',
+      'Email/Password + Mobile OTP Login',
+      'Guest Browsing Before Sign-In',
+      'Push Notifications (FCM)',
+      'Light & Dark Themes',
+      'In-App Account Deletion (Play Policy)',
+    ],
+    featureModules: [
+      {
+        title: 'Wholesale Catalogue & Buying',
+        items: [
+          'Verified store catalogues with category navigation',
+          'Carton pricing, MOQ and volume-based tier pricing',
+          'Instant search with store-level availability filter',
+          '"Make a Deal" — request custom bulk pricing from a product card',
+        ],
+      },
+      {
+        title: 'Orders, Delivery & Invoicing',
+        items: [
+          'Store-scoped cart so every order belongs to one fulfilment centre',
+          'Pick delivery / pickup date to match restocking schedules',
+          'GST-ready PDF tax invoices with QR code and amount-in-words',
+          'Multi-stage order tracking: Pending, Confirmed, Shipped, Delivered',
+        ],
+      },
+      {
+        title: 'Accounts, Security & Platform',
+        items: [
+          'Email/password and mobile OTP login with password reset',
+          'JWT in encrypted storage with automatic token refresh',
+          'FCM push notifications and Crashlytics crash reporting',
+          'PHP + MySQL backend for orders, invoices and notifications',
+        ],
+      },
+    ],
+    roadmap: [
+      'Website catalogue live at shoppozonewholesale.com',
+      'Android app built for Target SDK 36 (Android 16) and audited for Play Store policy & Data Safety',
+      'Launch on Google Play, then the Apple App Store',
+      'Grow supplier stores and regional branches on the platform',
+      'Add more self-serve tools for buyers and store managers',
+    ],
+    businessImpact:
+      'Gives wholesale suppliers one digital channel to sell to retailers and resellers — with negotiated bulk pricing, scheduled dispatch and tax invoices handled in-app instead of over phone calls and paper.',
+    problem:
+      'Retailers and resellers were ordering wholesale stock over phone and chat: no clear tier pricing, no way to negotiate bulk deals in one place, and invoices created by hand.',
+    solution:
+      'A B2B commerce platform with tiered pricing, in-app deal negotiation, scheduled delivery and automatic GST invoice generation — on a web catalogue plus Android & iOS apps backed by one API.',
+    architecture:
+      'Flutter app with feature-sliced Clean Architecture and GetX (state, DI, routing); Dio network layer with auth interceptor, token refresh and retries; PHP 8 + MySQL REST backend with PDF invoice service and FCM notifications.',
+    challenges: [
+      'Modelling tier pricing, MOQ and negotiated deal prices in one cart',
+      'Keeping the cart scoped to the active store across branch switches',
+      'Generating compliant GST tax invoices (PDF + QR) on the server',
+      'Meeting Google Play Android 16, Data Safety and account-deletion requirements',
+    ],
+    results: [
+      { metric: 'Website', value: 'Live' },
+      { metric: 'Automated Tests', value: '197 ✓' },
+      { metric: 'Android Target', value: 'SDK 36' },
+    ],
+    metrics: 'Website Live · 197 Tests Passing · Android 16 Ready',
+    liveUrl: 'https://shoppozonewholesale.com',
+    projectAttributes: ['Current Project', 'Tech Lead', 'Web + Mobile', 'B2B Commerce'],
+    coverImage: '/projects/shoppozone.svg',
+    floating: {
+      size: 'large',
+      depth: 'front',
+    },
+  },
+
+  // PROJECT 02 — LIVING / GODREJ LIVING
   {
     id: 'godrej-living',
-    index: '01',
+    index: '02',
     name: 'LIVING (Godrej Living)',
     title: 'LIVING (Godrej Living — Real Estate Project)',
     subtitle: 'Enterprise Real Estate & Community Management Platform',
@@ -57,10 +167,10 @@ export const projects: Project[] = [
     },
   },
 
-  // PROJECT 02 — SAH INVESTMENT
+  // PROJECT 03 — SAH INVESTMENT
   {
     id: 'sah-investment',
-    index: '02',
+    index: '03',
     name: 'SAH Investment',
     title: 'SAH INVESTMENT',
     subtitle: 'Financial Management Application',
@@ -111,10 +221,10 @@ export const projects: Project[] = [
     },
   },
 
-  // PROJECT 03 — YONETI
+  // PROJECT 04 — YONETI
   {
     id: 'yoneti',
-    index: '03',
+    index: '04',
     name: 'Yoneti',
     title: 'YONETI',
     subtitle: 'Shop Management & Service Platform',
@@ -165,10 +275,10 @@ export const projects: Project[] = [
     },
   },
 
-  // PROJECT 04 — MAGICRETE BUILDMART
+  // PROJECT 05 — MAGICRETE BUILDMART
   {
     id: 'magicrete-buildmart',
-    index: '04',
+    index: '05',
     name: 'Magicrete BuildMart',
     title: 'Magicrete BuildMart',
     subtitle: 'Digital Construction Materials Marketplace',
@@ -233,10 +343,10 @@ export const projects: Project[] = [
     },
   },
 
-  // PROJECT 05 — DG FERRY AGENT BOOKING PLATFORM
+  // PROJECT 06 — DG FERRY AGENT BOOKING PLATFORM
   {
     id: 'dg-ferry-agent',
-    index: '05',
+    index: '06',
     name: 'DG Ferry Agent Booking Platform',
     title: 'DG Ferry Agent Booking Platform',
     subtitle: 'Maritime Enterprise Communication Platform',
@@ -298,10 +408,10 @@ export const projects: Project[] = [
     },
   },
 
-  // PROJECT 06 — MANIER DE VOIR
+  // PROJECT 07 — MANIER DE VOIR
   {
     id: 'manier-de-voir',
-    index: '06',
+    index: '07',
     name: 'Manier De Voir',
     title: 'Manier De Voir',
     subtitle: 'Premium Fashion E-Commerce Platform',
@@ -366,10 +476,10 @@ export const projects: Project[] = [
     },
   },
 
-  // PROJECT 07 — ZINGHR ONBOARDING
+  // PROJECT 08 — ZINGHR ONBOARDING
   {
     id: 'zinghr-onboarding',
-    index: '07',
+    index: '08',
     name: 'ZingHR Onboarding',
     title: 'ZingHR Onboarding',
     subtitle: 'Enterprise HR Onboarding Mobile Platform',
@@ -431,10 +541,10 @@ export const projects: Project[] = [
     },
   },
 
-  // PROJECT 08 — DG SEA CONNECT
+  // PROJECT 09 — DG SEA CONNECT
   {
     id: 'dg-sea-connect',
-    index: '08',
+    index: '09',
     name: 'DG Sea Connect',
     title: 'DG Sea Connect',
     subtitle: 'Maritime Enterprise Communication Platform',
@@ -494,10 +604,10 @@ export const projects: Project[] = [
     },
   },
 
-  // PROJECT 09 — PULPIT MOBILITY
+  // PROJECT 10 — PULPIT MOBILITY
   {
     id: 'pulpit-mobility',
-    index: '09',
+    index: '10',
     name: 'Pulpit Mobility',
     title: 'Pulpit Mobility',
     subtitle: 'Enterprise Transportation & Mobility Platform',
@@ -562,10 +672,10 @@ export const projects: Project[] = [
     },
   },
 
-  // PROJECT 10 — MYRCLOUD RECRUITMENT PLATFORM
+  // PROJECT 11 — MYRCLOUD RECRUITMENT PLATFORM
   {
     id: 'myrcloud-recruitment',
-    index: '10',
+    index: '11',
     name: 'MyRCloud Recruitment Platform',
     title: 'MyRCloud Recruitment Platform',
     subtitle: 'Enterprise Recruitment & Hiring Ecosystem',
@@ -628,10 +738,10 @@ export const projects: Project[] = [
     },
   },
 
-  // PROJECT 11 — MAGICRETE SARTHAK
+  // PROJECT 12 — MAGICRETE SARTHAK
   {
     id: 'magicrete-sarthak',
-    index: '11',
+    index: '12',
     name: 'Magicrete Sarthak',
     title: 'Magicrete Sarthak',
     subtitle: 'Enterprise Employee & Partner Engagement Platform',
@@ -688,10 +798,10 @@ export const projects: Project[] = [
     },
   },
 
-  // PROJECT 12 — NCH ENTERPRISE SOLUTION
+  // PROJECT 13 — NCH ENTERPRISE SOLUTION
   {
     id: 'nch-enterprise',
-    index: '12',
+    index: '13',
     name: 'NCH Enterprise Solution',
     title: 'NCH Enterprise Solution',
     subtitle: 'Multi-Platform Business Management Software',

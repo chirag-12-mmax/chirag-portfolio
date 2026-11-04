@@ -108,7 +108,7 @@ export default function Hardware() {
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.82rem', color: 'var(--muted)', lineHeight: 1.7 }}>
             These integrations are battle-tested across production applications — from biometric authentication in financial apps
             and Bluetooth printer integration in POS systems, to QR gate verification for enterprise communities and hardware SDK
-            bridges via Flutter platform channels.
+            bridges via native Android, iOS and Flutter platform channels.
           </p>
         </div>
       </div>
